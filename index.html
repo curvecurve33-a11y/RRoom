@@ -1,310 +1,312 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlTag">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoomApp | Founding 100 Partners</title>
 
-<title>RoomApp | Founders Circle</title>
-
-<meta property="og:title" content="RoomApp – Founders Circle">
-<meta property="og:image" content="https://roomapp.ae/og-image.jpg">
-<meta property="og:type" content="website">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
---gold:#D4AF37;
---dark:#0b0b0f;
---glass:rgba(255,255,255,0.06);
+--black:#0b0b0c;
+--dark:#111;
+--gold:#C6A756;
+--gold-light:#e7d29a;
+--gold-soft:rgba(198,167,86,0.15);
+--text:#e8e8e8;
+--muted:#bdbdbd;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Inter',sans-serif;
-background:radial-gradient(circle at 30% 20%,#1c1506,#000 60%);
-color:#fff;
+background:radial-gradient(circle at 20% 20%, #1a1a1a, #000);
+color:var(--text);
 overflow-x:hidden;
+scroll-behavior:smooth;
+line-height:1.6;
 }
 
-/* Animated particles */
-canvas{
+/* ===== Animated Luxury Background ===== */
+body::before{
+content:"";
+position:fixed;
+width:140%;
+height:140%;
+top:-20%;
+left:-20%;
+background:conic-gradient(from 180deg,var(--gold-soft),transparent,var(--gold-soft));
+animation:rotateBg 40s linear infinite;
+z-index:-3;
+}
+@keyframes rotateBg{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* ===== Header ===== */
+header{
 position:fixed;
 top:0;
-left:0;
-z-index:-1;
-}
-
-/* HEADER */
-header{
-padding:30px 8%;
+width:100%;
+background:rgba(11,11,12,0.7);
+backdrop-filter:blur(20px);
+padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid rgba(212,175,55,0.2);
+z-index:999;
+border-bottom:1px solid rgba(198,167,86,0.2);
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-.brand img{
-height:65px;
+.logo img{
+height:60px;
+filter: drop-shadow(0 0 20px rgba(198,167,86,0.4));
 }
 
 .company-info{
-font-size:15px;
-line-height:1.7;
+font-size:14px;
+color:#cfcfcf;
+line-height:1.6;
 }
 
-.company-info strong{
-font-size:18px;
-color:var(--gold);
-display:block;
-margin-bottom:4px;
-}
+.gold{color:var(--gold);}
 
 .lang-btn{
 border:1px solid var(--gold);
 background:transparent;
 color:var(--gold);
-padding:6px 18px;
-border-radius:25px;
-font-size:14px;
+padding:9px 22px;
+border-radius:30px;
 cursor:pointer;
-transition:.3s;
+transition:.4s;
 }
-
 .lang-btn:hover{
 background:var(--gold);
 color:#000;
 }
 
-/* HERO */
-.section{
-padding:140px 8% 120px;
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+section{
+padding:140px 0;
+}
+
+/* ===== HERO ===== */
+.hero{
+padding-top:220px;
 text-align:center;
 }
 
+/* 🔥 Circle Title */
+.circle-badge{
+width:220px;
+height:220px;
+margin:0 auto 40px;
+border-radius:50%;
+background:radial-gradient(circle,var(--gold),#000);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+font-size:28px;
+font-weight:600;
+color:#000;
+box-shadow:0 0 80px rgba(198,167,86,0.5);
+animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
 .hero h1{
-font-family:'Playfair Display',serif;
-font-size:64px;
-color:var(--gold);
-margin-bottom:20px;
-letter-spacing:1px;
+font-size:46px;
+margin-bottom:15px;
+font-weight:600;
 }
 
-.hero h2{
-font-weight:300;
-color:#ccc;
-margin-bottom:30px;
-font-size:22px;
+.hero p{
+color:var(--muted);
+font-size:20px;
+max-width:760px;
+margin:auto;
+margin-bottom:40px;
 }
 
-.lux-divider{
-width:120px;
-height:2px;
-background:linear-gradient(to right,transparent,var(--gold),transparent);
-margin:40px auto;
+/* ===== Package Box ===== */
+.package-box{
+background:rgba(20,20,20,0.7);
+backdrop-filter:blur(25px);
+border:1px solid rgba(198,167,86,0.3);
+border-radius:25px;
+padding:50px;
+box-shadow:0 0 100px rgba(198,167,86,0.08);
 }
 
-/* CARD */
-.card{
-background:var(--glass);
-backdrop-filter:blur(18px);
-border:1px solid rgba(212,175,55,0.25);
-border-radius:30px;
-padding:70px;
-margin-top:100px;
-}
-
-.grid{
+.package-list{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-margin-top:50px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+margin-top:25px;
 }
 
-.feature{
+.package-item{
 padding:30px;
+background:#141414;
 border-radius:18px;
-border:1px solid rgba(212,175,55,0.2);
+border:1px solid rgba(198,167,86,0.2);
 transition:.4s;
+font-weight:500;
+}
+.package-item:hover{
+transform:translateY(-10px);
+box-shadow:0 30px 60px rgba(198,167,86,0.15);
 }
 
-.feature:hover{
-background:rgba(212,175,55,0.06);
-transform:translateY(-6px);
+/* ===== FORM ===== */
+.form-section{
+margin-top:100px;
+padding:60px;
+background:rgba(20,20,20,0.7);
+backdrop-filter:blur(30px);
+border-radius:25px;
+border:1px solid rgba(198,167,86,0.3);
 }
 
-/* FORM */
 input,textarea{
 width:100%;
 padding:18px;
 margin-bottom:22px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(212,175,55,0.25);
-border-radius:12px;
+border-radius:15px;
+border:1px solid rgba(198,167,86,0.2);
+background:#111;
 color:#fff;
+transition:.3s;
+}
+input:focus,textarea:focus{
+border-color:var(--gold);
+box-shadow:0 0 20px rgba(198,167,86,0.4);
+outline:none;
 }
 
-button{
-padding:18px;
+.payment-title{
+margin:30px 0 20px;
+color:var(--gold);
+font-weight:600;
+}
+
+.btn{
 width:100%;
-border-radius:40px;
+padding:18px;
 border:1px solid var(--gold);
 background:transparent;
 color:var(--gold);
+border-radius:40px;
 cursor:pointer;
 font-weight:600;
 transition:.3s;
 }
-
-button:hover{
+.btn:hover{
 background:var(--gold);
 color:#000;
 }
 
-/* FOOTER */
-footer{
-padding:100px 8%;
-border-top:1px solid rgba(212,175,55,0.2);
-margin-top:150px;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:50px;
-}
-
-.footer-title{
-color:var(--gold);
-margin-bottom:18px;
+.success-message{
+display:none;
+margin-top:20px;
+color:#4CAF50;
 font-weight:600;
+text-align:center;
 }
 
-[dir="rtl"]{
-text-align:right;
+footer{
+text-align:center;
+padding:70px;
+color:#888;
+border-top:1px solid rgba(198,167,86,0.1);
+margin-top:140px;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-
 <header>
-<div class="brand">
-<img src="room-logo.png" alt="RoomApp Logo">
+<div class="logo">
+<img src="room-logo.jpg" alt="Room Logo">
 <div class="company-info">
-<strong>RoomApp Advertising Services L.L.C – S.P.C</strong>
-Trade License No: CN-5533268<br>
-Abu Dhabi, UAE
+<strong>RoomApp Advertising Services L.L.C – S.P.C</strong><br>
+CR Number: CN-5533268 – Abu Dhabi, UAE
 </div>
 </div>
-
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">العربية</button>
+<button class="lang-btn">العربية</button>
 </header>
 
-<section class="section hero">
+<section class="hero container">
 
-<h1 id="mainTitle">The Founders Circle</h1>
-<h2 id="subTitle">Exclusive Private Relaunch Access</h2>
+<div class="circle-badge">
+Founding<br>100<br>Partners
+</div>
 
-<div class="lux-divider"></div>
+<h1>Strategic Construction Leaders in UAE</h1>
 
-<div class="card">
-<h2 style="color:#D4AF37;margin-bottom:30px;" id="packageTitle">
-Elite Relaunch Positioning – 1000 AED
-</h2>
+<p>
+Join the first verified construction firms professionally presenting their services and projects through RoomApp.
+</p>
 
-<div class="grid">
-<div class="feature">Premium Profile Setup</div>
-<div class="feature">Priority Category Visibility</div>
-<div class="feature">Verified Company Badge</div>
-<div class="feature">Homepage Rotational Exposure</div>
-<div class="feature">Advanced Project Showcase</div>
-<div class="feature">Strategic Emirate Placement</div>
+<div class="package-box">
+<h3 class="gold">Founding Partner Package – 1000 AED (Year 1)</h3>
+
+<div class="package-list">
+<div class="package-item">3 Highlighted Services</div>
+<div class="package-item">3 Featured Projects</div>
+<div class="package-item">1 Emirate Coverage</div>
+<div class="package-item">Rotational Category Visibility</div>
+<div class="package-item">Official Founding Partner Badge</div>
+<div class="package-item">Professional Profile Setup</div>
 </div>
 </div>
 
 </section>
 
+<section class="container">
+<div class="form-section">
+<h2 class="gold">Apply as Founding Partner</h2>
+
+<form>
+<input type="text" placeholder="Company Name" required>
+<input type="text" placeholder="Trade License Number" required>
+<input type="text" placeholder="Emirate" required>
+<input type="text" placeholder="Contact Person" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+<textarea placeholder="Brief Description of Services"></textarea>
+
+<div class="payment-title">Payment Method</div>
+
+<label><input type="radio" name="payment"> Cash</label><br>
+<label><input type="radio" name="payment"> Bank Transfer</label><br>
+<label><input type="radio" name="payment"> Credit Card (Stripe)</label>
+
+<button type="submit" class="btn">Submit Application</button>
+
+<div class="success-message">Application Submitted Successfully ✔</div>
+</form>
+</div>
+</section>
+
 <footer>
-<div class="footer-grid">
-
-<div>
-<div class="footer-title">Company Information</div>
-RoomApp Advertising Services L.L.C – S.P.C<br>
-CN-5533268<br>
-Abu Dhabi – UAE
-</div>
-
-<div>
-<div class="footer-title">Contact</div>
-0509900455<br>
-info@roomapp.ae<br>
-www.roomapp.ae
-</div>
-
-<div>
-<div class="footer-title">© 2026 RoomApp</div>
-All Rights Reserved
-</div>
-
-</div>
+© 2026 RoomApp Advertising Services L.L.C – S.P.C | Abu Dhabi, UAE
 </footer>
-
-<script>
-/* Gold particles */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-for(let i=0;i<70;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-d:Math.random()*1.2
-});
-}
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="rgba(212,175,55,0.6)";
-particles.forEach(p=>{
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fill();
-p.y+=p.d;
-if(p.y>canvas.height)p.y=0;
-});
-requestAnimationFrame(draw);
-}
-draw();
-
-/* Language */
-let lang="en";
-function toggleLang(){
-if(lang==="en"){
-document.documentElement.setAttribute("dir","rtl");
-document.getElementById("mainTitle").innerText="دائرة المؤسسين";
-document.getElementById("subTitle").innerText="دعوة خاصة محدودة لإعادة الإطلاق";
-document.getElementById("packageTitle").innerText="التمركز الفاخر لإعادة الإطلاق – 1000 درهم";
-document.getElementById("langBtn").innerText="English";
-lang="ar";
-}else{
-location.reload();
-}
-}
-</script>
 
 </body>
 </html>
