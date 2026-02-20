@@ -17,11 +17,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-(function(){
-emailjs.init("wBLBy-BZReu3IgCsX");
-})();
-</script
+
 <style>
 :root{
 --gold:#C6A756;
@@ -63,6 +59,7 @@ z-index:-2;
 100%{transform:translate(-12%,-10%) scale(1.1);}
 }
 
+/* ===== HEADER ===== */
 header{
 display:flex;
 justify-content:space-between;
@@ -87,15 +84,8 @@ box-shadow:0 0 25px rgba(198,167,86,0.6);
 
 .logo-frame img{height:95px;}
 
-.company-info strong{
-font-size:22px;
-letter-spacing:0.5px;
-}
-
-.company-info span{
-color:var(--gray);
-font-size:15px;
-}
+.company-info strong{font-size:22px;}
+.company-info span{color:var(--gray);font-size:15px;}
 
 .lang-btn{
 border:1px solid var(--gold);
@@ -108,10 +98,7 @@ font-size:15px;
 }
 
 /* ===== HERO ===== */
-.hero{
-text-align:center;
-padding:140px 10% 80px;
-}
+.hero{text-align:center;padding:140px 10% 80px;}
 
 .circle{
 width:280px;
@@ -143,17 +130,8 @@ text-align:center;
 100%{transform:translateY(0);}
 }
 
-.hero h1{
-font-size:48px;
-margin-bottom:25px;
-}
-
-.hero p{
-font-size:22px;
-color:var(--gray);
-max-width:900px;
-margin:auto;
-}
+.hero h1{font-size:48px;margin-bottom:25px;}
+.hero p{font-size:22px;color:var(--gray);max-width:900px;margin:auto;}
 
 /* ===== SECTIONS ===== */
 .section-box{
@@ -164,12 +142,17 @@ background:rgba(17,17,17,0.9);
 border-radius:35px;
 border:1px solid rgba(198,167,86,0.3);
 box-shadow:0 0 60px rgba(198,167,86,0.2);
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
 }
 
-.section-box h3{
-font-size:30px;
-margin-bottom:40px;
+.section-box.show{
+opacity:1;
+transform:translateY(0);
 }
+
+.section-box h3{font-size:30px;margin-bottom:40px;}
 
 .package-list{
 display:grid;
@@ -183,6 +166,12 @@ padding:40px;
 border-radius:25px;
 border:1px solid rgba(198,167,86,0.25);
 font-size:18px;
+transition:.3s;
+}
+
+.package-item:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(198,167,86,0.5);
 }
 
 /* ===== FORM ===== */
@@ -197,10 +186,7 @@ color:#fff;
 font-size:17px;
 }
 
-textarea{
-min-height:140px;
-resize:none;
-}
+textarea{min-height:140px;resize:none;}
 
 .payment-card{
 display:inline-block;
@@ -210,6 +196,11 @@ border-radius:30px;
 border:1px solid rgba(198,167,86,0.4);
 cursor:pointer;
 font-size:16px;
+transition:.3s;
+}
+
+.payment-card:hover{
+background:rgba(198,167,86,0.15);
 }
 
 .payment-card input{display:none;}
@@ -240,6 +231,13 @@ text-align:center;
 border-top:1px solid rgba(198,167,86,0.3);
 color:#aaa;
 font-size:15px;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:32px;}
+.hero p{font-size:18px;}
+.circle{width:220px;height:220px;font-size:22px;}
+.section-box{padding:40px;}
 }
 </style>
 </head>
@@ -320,9 +318,19 @@ An exclusive selection of 100 high-value construction companies chosen for the o
 <script>
 emailjs.init("wBLBy-BZReu3IgCsX");
 
+const sections=document.querySelectorAll('.section-box');
+function reveal(){
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add('show');
+}
+});
+}
+window.addEventListener('scroll',reveal);
+window.addEventListener('load',reveal);
+
 document.getElementById("eliteForm").addEventListener("submit", function(e){
 e.preventDefault();
-
 emailjs.send("service_1572z3v","template_0n2h66c",{
 company:this.company.value,
 license:this.license.value,
@@ -342,19 +350,6 @@ alert(ar?"حدث خطأ أثناء الإرسال":"Error sending application");
 });
 });
 
-/* Scroll Reveal */
-const sections=document.querySelectorAll('.section-box');
-function reveal(){
-sections.forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100){
-sec.classList.add('show');
-}
-});
-}
-window.addEventListener('scroll',reveal);
-window.addEventListener('load',reveal);
-
-/* Language Toggle */
 let ar=false;
 function toggleLang(){
 ar=!ar;
@@ -369,21 +364,6 @@ packageTitle.innerHTML="باقة الشريك النخبوي – 1000 درهم (
 applyTitle.innerHTML="التقديم ضمن النخبة المختارة";
 paymentTitle.innerHTML="طريقة الدفع";
 submitBtn.innerHTML="إرسال الطلب";
-s1.innerHTML="3 خدمات مميزة";
-s2.innerHTML="3 مشاريع بارزة";
-s3.innerHTML="تغطية إمارة واحدة";
-s4.innerHTML="أولوية الظهور ضمن الفئة";
-s5.innerHTML="شارة شريك نخبوي";
-s6.innerHTML="إعداد ملف احترافي كامل";
-
-document.querySelector('input[name="company"]').placeholder="اسم الشركة";
-document.querySelector('input[name="license"]').placeholder="رقم الرخصة التجارية";
-document.querySelector('input[name="emirate"]').placeholder="الإمارة";
-document.querySelector('input[name="contact"]').placeholder="اسم المسؤول";
-document.querySelector('input[name="email"]').placeholder="البريد الإلكتروني";
-document.querySelector('input[name="phone"]').placeholder="رقم الهاتف";
-document.querySelector('textarea[name="services"]').placeholder="وصف مختصر للخدمات";
-
 }else{
 location.reload();
 }
