@@ -27,7 +27,7 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
-/* 🔥 Luxury Animated Background */
+/* Luxury Animated Background */
 body::before{
 content:"";
 position:fixed;
@@ -64,31 +64,47 @@ top:0;
 width:100%;
 background:rgba(11,11,12,0.85);
 backdrop-filter:blur(12px);
-padding:15px 8%;
-display:flex;
-justify-content:center;
-align-items:center;
+padding:20px 8%;
 z-index:999;
 border-bottom:1px solid rgba(198,167,86,0.1);
 }
 
-.logo img{
-height:65px;
-width:auto;
-transition:.4s;
-filter: drop-shadow(0 0 20px rgba(198,167,86,0.35));
+.header-content{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+text-align:center;
 }
 
-.logo img:hover{
-transform:scale(1.06);
+.logo-box img{
+height:65px;
+width:auto;
+filter: drop-shadow(0 0 20px rgba(198,167,86,0.35));
+transition:.4s;
+}
+
+.logo-box img:hover{
+transform:scale(1.05);
 filter: drop-shadow(0 0 35px rgba(198,167,86,0.55));
 }
 
-.gold{color:var(--gold);}
+.company-info h2{
+font-size:18px;
+font-weight:600;
+color:var(--gold);
+}
+
+.company-info p{
+font-size:13px;
+color:var(--muted);
+margin-top:5px;
+}
 
 /* Hero */
 .hero{
-padding-top:200px;
+padding-top:220px;
 text-align:center;
 animation:fadeUp 1.2s ease forwards;
 }
@@ -236,7 +252,7 @@ margin-top:120px;
 @media(max-width:768px){
 .hero h1{font-size:38px;}
 .hero p{font-size:16px;}
-.logo img{height:50px;}
+.logo-box img{height:50px;}
 }
 </style>
 </head>
@@ -246,7 +262,7 @@ margin-top:120px;
 <header>
 <div class="header-content">
     <div class="logo-box">
-        <img src="./room-logo.jpg" alt="RoomApp Logo">
+        <img src="room-logo.jpg" alt="RoomApp Logo">
     </div>
 
     <div class="company-info">
@@ -255,33 +271,9 @@ margin-top:120px;
     </div>
 </div>
 </header>
-.header-content{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-text-align:center;
-}
 
-.logo-box img{
-height:60px;
-width:auto;
-}
-
-.company-info h2{
-font-size:18px;
-font-weight:600;
-color:var(--gold);
-}
-
-.company-info p{
-font-size:13px;
-color:var(--muted);
-margin-top:5px;
-}
 <section class="hero container">
-<h1><span class="gold">Founding 100</span> Strategic Partners</h1>
+<h1><span style="color:#C6A756;">Founding 100</span> Strategic Partners</h1>
 <p>
 Position your company among the first verified construction firms professionally showcasing projects and services on RoomApp across the UAE.
 </p>
@@ -303,7 +295,7 @@ Position your company among the first verified construction firms professionally
 
 <section id="apply" class="container">
 <div class="form-section">
-<h2 class="gold">Apply as Founding Partner</h2>
+<h2 style="color:#C6A756;">Apply as Founding Partner</h2>
 
 <form id="partnerForm">
 <input type="text" placeholder="Company Name" required>
@@ -323,7 +315,7 @@ Our team will contact you shortly.
 </form>
 
 <div class="spots">
-Founding Spots Remaining: <span class="gold" id="spotCount">100</span>
+Founding Spots Remaining: <span style="color:#C6A756;" id="spotCount">100</span>
 </div>
 
 </div>
