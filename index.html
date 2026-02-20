@@ -25,12 +25,6 @@ background:var(--black);
 color:var(--text);
 overflow-x:hidden;
 scroll-behavior:smooth;
-transition:.3s;
-}
-
-body.rtl{
-direction:rtl;
-text-align:right;
 }
 
 .container{
@@ -55,11 +49,24 @@ z-index:999;
 border-bottom:1px solid rgba(198,167,86,0.1);
 }
 
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
 .logo img{
-height:65px;
-width:auto;
+height:60px;
 filter: drop-shadow(0 0 20px rgba(198,167,86,0.35));
 }
+
+.company-info{
+font-size:14px;
+color:#ccc;
+line-height:1.4;
+}
+
+.gold{color:var(--gold);}
 
 .lang-btn{
 border:1px solid var(--gold);
@@ -76,11 +83,23 @@ background:var(--gold);
 color:#000;
 }
 
-.gold{color:var(--gold);}
+.hero{
+padding-top:200px;
+text-align:center;
+}
 
-.hero{padding-top:200px;text-align:center;}
-.hero h1{font-size:56px;margin-bottom:25px;}
-.hero p{color:var(--muted);font-size:20px;max-width:750px;margin:auto;margin-bottom:40px;}
+.hero h1{
+font-size:56px;
+margin-bottom:25px;
+}
+
+.hero p{
+color:var(--muted);
+font-size:20px;
+max-width:750px;
+margin:auto;
+margin-bottom:40px;
+}
 
 .package-box{
 margin-top:60px;
@@ -88,6 +107,13 @@ background:linear-gradient(180deg,#111 0%,#0b0b0c 100%);
 border:1px solid rgba(198,167,86,0.2);
 border-radius:20px;
 padding:50px;
+}
+
+.package-box h3{
+color:var(--gold);
+margin-bottom:30px;
+font-size:24px;
+text-align:center;
 }
 
 .package-list{
@@ -101,6 +127,7 @@ padding:25px;
 background:#141414;
 border-radius:14px;
 border:1px solid rgba(198,167,86,0.15);
+text-align:center;
 }
 
 .form-section{
@@ -119,6 +146,7 @@ border-radius:10px;
 border:1px solid rgba(198,167,86,0.2);
 background:#141414;
 color:#fff;
+font-size:15px;
 }
 
 textarea{min-height:120px;resize:none;}
@@ -131,6 +159,7 @@ color:var(--gold);
 background:transparent;
 border-radius:40px;
 cursor:pointer;
+font-weight:600;
 }
 
 .btn:hover{
@@ -143,6 +172,7 @@ display:none;
 margin-top:20px;
 color:#4CAF50;
 font-weight:600;
+text-align:center;
 }
 
 .spots{
@@ -159,6 +189,16 @@ color:#777;
 border-top:1px solid rgba(198,167,86,0.1);
 margin-top:120px;
 }
+
+/* RTL only when activated */
+[dir="rtl"]{
+text-align:right;
+}
+
+[dir="rtl"] input,
+[dir="rtl"] textarea{
+text-align:right;
+}
 </style>
 </head>
 
@@ -167,6 +207,10 @@ margin-top:120px;
 <header>
 <div class="logo">
 <img src="room-logo.jpg" alt="Room Logo">
+<div class="company-info">
+<strong>RoomApp Advertising Services L.L.C – S.P.C</strong><br>
+CR Number: 0000000 – Abu Dhabi, UAE
+</div>
 </div>
 <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
 </header>
@@ -231,26 +275,52 @@ let currentLang = "en";
 document.getElementById("partnerForm").addEventListener("submit", function(e){
 e.preventDefault();
 document.getElementById("successMsg").style.display="block";
-if(spots>0){spots--;document.getElementById("spotCount").innerText=spots;}
+if(spots>0){
+spots--;
+document.getElementById("spotCount").innerText=spots;
+}
 this.reset();
 });
 
 function toggleLanguage(){
-if(currentLang==="en"){
-document.body.classList.add("rtl");
-document.getElementById("htmlTag").setAttribute("lang","ar");
+
+if(currentLang === "en"){
+
+document.documentElement.setAttribute("lang","ar");
+document.documentElement.setAttribute("dir","rtl");
 document.getElementById("langBtn").innerText="English";
 
 document.getElementById("heroTitle").innerHTML='<span class="gold">أول 100</span> شريك استراتيجي';
 document.getElementById("heroDesc").innerText="ضع شركتك ضمن أول الشركات المعتمدة التي تعرض مشاريعها وخدماتها باحترافية عبر روم أب في دولة الإمارات.";
 document.getElementById("packageTitle").innerText="باقة الشريك المؤسس – 1000 درهم (السنة الأولى)";
+document.getElementById("p1").innerText="3 خدمات مميزة";
+document.getElementById("p2").innerText="3 مشاريع بارزة";
+document.getElementById("p3").innerText="تغطية إمارة واحدة";
+document.getElementById("p4").innerText="ظهور دوري ضمن الفئة";
+document.getElementById("p5").innerText="شارة شريك مؤسس رسمية";
+document.getElementById("p6").innerText="إعداد ملف تعريفي احترافي";
+
 document.getElementById("formTitle").innerText="التقديم كشريك مؤسس";
 document.getElementById("submitBtn").innerText="إرسال";
 document.getElementById("spotsText").innerText="المقاعد المتبقية:";
 
+document.getElementById("company").placeholder="اسم الشركة";
+document.getElementById("license").placeholder="رقم الرخصة التجارية";
+document.getElementById("emirate").placeholder="الإمارة";
+document.getElementById("contact").placeholder="اسم المسؤول";
+document.getElementById("email").placeholder="البريد الإلكتروني";
+document.getElementById("phone").placeholder="رقم الهاتف";
+document.getElementById("desc").placeholder="وصف مختصر للخدمات";
+
 currentLang="ar";
+
 }else{
+
+document.documentElement.setAttribute("lang","en");
+document.documentElement.setAttribute("dir","ltr");
+document.getElementById("langBtn").innerText="العربية";
 location.reload();
+
 }
 }
 </script>
