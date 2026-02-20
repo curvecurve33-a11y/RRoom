@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RoomApp | Elite Certified 100</title>
+<title>RoomApp | Relaunch 100 Selected Companies</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ====== (تم الإبقاء على نفس التصميم بالكامل بدون تغيير) ====== */
 :root{
 --black:#0b0b0c;
 --dark:#111;
@@ -17,7 +16,9 @@
 --text:#e8e8e8;
 --muted:#bdbdbd;
 }
+
 *{margin:0;padding:0;box-sizing:border-box;}
+
 body{
 font-family:'Inter',sans-serif;
 background:var(--black);
@@ -27,116 +28,314 @@ scroll-behavior:smooth;
 line-height:1.6;
 letter-spacing:.2px;
 }
-/* (كل CSS كما هو بدون تغيير) */
+
+/* ===== Scroll Progress Bar ===== */
+.progress-bar{
+position:fixed;
+top:0;
+left:0;
+height:3px;
+background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
+width:0%;
+z-index:2000;
+box-shadow:0 0 15px var(--gold);
+}
+
+/* ===== Mouse Light Effect ===== */
+.mouse-light{
+position:fixed;
+width:600px;
+height:600px;
+pointer-events:none;
+background:radial-gradient(circle,var(--gold-soft),transparent 60%);
+transform:translate(-50%,-50%);
+z-index:-1;
+}
+
+/* ===== Parallax Background ===== */
+.parallax{
+position:fixed;
+top:0;
+left:0;
+width:120%;
+height:120%;
+background:
+radial-gradient(circle at 20% 30%, rgba(198,167,86,0.12), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(198,167,86,0.08), transparent 50%);
+z-index:-2;
+will-change:transform;
+}
+
+/* ===== Floating Orbs ===== */
+.orb{
+position:fixed;
+width:200px;
+height:200px;
+background:radial-gradient(circle,var(--gold-soft),transparent 70%);
+border-radius:50%;
+filter:blur(40px);
+animation:float 20s ease-in-out infinite alternate;
+z-index:-2;
+}
+.orb:nth-child(2){top:60%;left:70%;animation-duration:25s;}
+.orb:nth-child(3){top:20%;left:80%;animation-duration:30s;}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+100%{transform:translateY(-80px);}
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(11,11,12,0.6);
+backdrop-filter:blur(25px);
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+border-bottom:1px solid rgba(198,167,86,0.15);
+}
+
+.logo img{
+height:60px;
+filter: drop-shadow(0 0 25px rgba(198,167,86,0.4));
+}
+
+.company-info{
+font-size:14px;
+color:#cfcfcf;
+line-height:1.6;
+}
+
+.gold{color:var(--gold);}
+
+.lang-btn{
+border:1px solid var(--gold);
+background:transparent;
+color:var(--gold);
+padding:9px 22px;
+border-radius:30px;
+cursor:pointer;
+transition:.4s;
+}
+.lang-btn:hover{
+background:var(--gold);
+color:#000;
+box-shadow:0 0 25px rgba(198,167,86,0.4);
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+section{
+padding:140px 0;
+opacity:0;
+transform:translateY(50px);
+transition:1s ease;
+}
+section.reveal{
+opacity:1;
+transform:translateY(0);
+}
+
+.hero{
+padding-top:220px;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:18px;
+font-weight:600;
+background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+0%{background-position:0%;}
+100%{background-position:200%;}
+}
+
+.hero p{
+color:var(--muted);
+font-size:20px;
+max-width:760px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.package-box,
+.form-section{
+background:rgba(20,20,20,0.6);
+backdrop-filter:blur(30px);
+border:1px solid rgba(198,167,86,0.25);
+border-radius:22px;
+box-shadow:0 0 80px rgba(198,167,86,0.05);
+}
+
+.package-box{
+margin-top:50px;
+padding:45px 50px;
+}
+
+.package-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:24px;
+margin-top:20px;
+}
+
+.package-item{
+padding:28px 20px;
+background:#141414;
+border-radius:16px;
+border:1px solid rgba(198,167,86,0.15);
+text-align:center;
+transition:.4s;
+}
+.package-item:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 25px 50px rgba(198,167,86,0.15);
+}
+
+.form-section{
+margin-top:90px;
+padding:55px 60px;
+}
+
+input,textarea{
+width:100%;
+padding:18px 22px;
+margin-bottom:22px;
+border-radius:14px;
+border:1px solid rgba(198,167,86,0.2);
+background:#141414;
+color:#fff;
+}
+
+.btn{
+width:100%;
+padding:18px;
+border:1px solid var(--gold);
+color:var(--gold);
+background:transparent;
+border-radius:40px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+.btn:hover{
+background:var(--gold);
+color:#000;
+box-shadow:0 0 40px rgba(198,167,86,0.4);
+}
+
+.success-message{
+display:none;
+margin-top:20px;
+color:#4CAF50;
+font-weight:600;
+text-align:center;
+}
+
+.spots{
+margin-top:35px;
+text-align:center;
+font-size:22px;
+font-weight:500;
+}
+
+footer{
+text-align:center;
+padding:70px;
+color:#888;
+border-top:1px solid rgba(198,167,86,0.1);
+margin-top:140px;
+}
+
+[dir="rtl"]{text-align:right;}
+[dir="rtl"] input,
+[dir="rtl"] textarea{ text-align:right; }
+
 </style>
 </head>
 
 <body>
-
-<div class="progress-bar" id="progressBar"></div>
-<div class="mouse-light" id="mouseLight"></div>
-<div class="parallax" id="parallax"></div>
-<div class="orb"></div>
-<div class="orb"></div>
-<div class="orb"></div>
 
 <header>
 <div class="logo">
 <img src="room-logo.jpg" alt="Room Logo">
 <div class="company-info">
 <strong>RoomApp Advertising Services L.L.C – S.P.C</strong><br>
-CR Number: CN-5533268 – Abu Dhabi, UAE
+Abu Dhabi, UAE
 </div>
 </div>
 <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
 </header>
 
 <section class="hero container">
-<h1 id="heroTitle"><span class="gold">Elite Certified 100</span><br>Official Platform Relaunch Allocation</h1>
-
+<h1 id="heroTitle"><span class="gold">Relaunch 100</span> Selected Companies</h1>
 <p id="heroDesc">
-Following RoomApp’s official platform upgrade and infrastructure expansion, we are entering our strategic relaunch phase. As part of this elevation, 100 construction firms will be selected for certified premium positioning and advanced visibility across the UAE.
+To mark the official relaunch of RoomApp, we are strategically selecting 100 verified companies to experience the full upgraded platform before public expansion.
 </p>
 
 <div class="package-box">
-<h3 id="packageTitle">Strategic Relaunch Selection Package – 1000 AED (Year 1 Privileged Allocation)</h3>
+<h3 id="packageTitle">Relaunch Elite Package – 1000 AED (Year 1)</h3>
 
 <div class="package-list">
-<div class="package-item" id="p1">3 Highlighted Services with Priority Visibility</div>
-<div class="package-item" id="p2">3 Featured Projects with Enhanced Exposure</div>
-<div class="package-item" id="p3">1 Emirate Geo-Targeted Coverage</div>
-<div class="package-item" id="p4">Advanced Category Placement Rotation</div>
-<div class="package-item" id="p5">Official Certified Relaunch Partner Badge</div>
-<div class="package-item" id="p6">Professional Profile Infrastructure Setup</div>
+<div class="package-item" id="p1">Premium Profile Setup</div>
+<div class="package-item" id="p2">Priority Category Visibility</div>
+<div class="package-item" id="p3">Advanced Project Showcase</div>
+<div class="package-item" id="p4">Verified Company Badge</div>
+<div class="package-item" id="p5">Rotational Homepage Exposure</div>
+<div class="package-item" id="p6">Strategic Positioning in Your Emirate</div>
 </div>
 </div>
 </section>
 
 <section class="container">
 <div class="form-section">
-<h2 class="gold" id="formTitle">Apply for Strategic Certified Selection</h2>
+<h2 class="gold" id="formTitle">Apply for Relaunch Selection</h2>
 
 <form id="partnerForm">
-<input type="text" id="company" placeholder="Company Name" required>
-<input type="text" id="license" placeholder="Trade License Number" required>
-<input type="text" id="emirate" placeholder="Emirate" required>
-<input type="text" id="contact" placeholder="Contact Person" required>
-<input type="email" id="email" placeholder="Email Address" required>
-<input type="tel" id="phone" placeholder="Phone Number" required>
-<textarea id="desc" placeholder="Brief Description of Services"></textarea>
+<input type="text" placeholder="Company Name" required>
+<input type="text" placeholder="Trade License Number" required>
+<input type="text" placeholder="Emirate" required>
+<input type="text" placeholder="Contact Person" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+<textarea placeholder="Brief Description of Services"></textarea>
 
-<div class="payment-title" id="paymentTitle">Payment Method</div>
-
-<div class="payment-grid">
-<label class="payment-card">
-<input type="radio" name="payment" value="Cash" required>
-<div class="payment-content">
-<div>💵</div>
-<div id="cashText">Cash</div>
-</div>
-</label>
-
-<label class="payment-card">
-<input type="radio" name="payment" value="Bank Transfer" required>
-<div class="payment-content">
-<div>🏦</div>
-<div id="bankText">Bank Transfer</div>
-</div>
-</label>
-
-<label class="payment-card">
-<input type="radio" name="payment" value="Stripe" required>
-<div class="payment-content">
-<div>💳</div>
-<div id="stripeText">Credit Card (Stripe)</div>
-</div>
-</label>
-</div>
-
-<button type="submit" class="btn" id="submitBtn">Submit Application</button>
+<button type="submit" class="btn">Submit Application</button>
 
 <div class="success-message" id="successMsg">
 Application Submitted Successfully ✔ <br>
-Our executive team will review your submission shortly.
+Our team will contact you shortly.
 </div>
 </form>
 
 <div class="spots">
-<span id="spotsText">Certified Allocation Remaining:</span>
+Selected Companies Remaining:
 <span class="gold" id="spotCount">100</span>
 </div>
 </div>
 </section>
 
 <footer>
-© 2026 RoomApp Advertising Services L.L.C – S.P.C | Abu Dhabi, UAE
+© 2026 RoomApp Advertising Services L.L.C – S.P.C
 </footer>
 
 <script>
-/* (جميع السكريبت كما هو) */
-
 let spots=100;
-let currentLang="en";
 document.getElementById("partnerForm").addEventListener("submit",function(e){
 e.preventDefault();
 document.getElementById("successMsg").style.display="block";
@@ -146,39 +345,6 @@ document.getElementById("spotCount").innerText=spots;
 }
 this.reset();
 });
-
-/* ===== Language Toggle Updated ===== */
-
-function toggleLanguage(){
-if(currentLang==="en"){
-document.documentElement.setAttribute("lang","ar");
-document.documentElement.setAttribute("dir","rtl");
-document.getElementById("langBtn").innerText="English";
-
-document.getElementById("heroTitle").innerHTML='<span class="gold">النخبة المعتمدة 100</span><br>مرحلة الإطلاق الرسمي بعد التطوير';
-document.getElementById("heroDesc").innerText="بعد التحديث التقني الشامل وتوسعة البنية التحتية لمنصة روم أب، ندخل الآن مرحلة الإطلاق الرسمي الجديدة. وضمن هذه المرحلة سيتم اختيار 100 شركة مقاولات للحصول على اعتماد رسمي وظهور مميز وتقنيات عرض متقدمة داخل دولة الإمارات.";
-
-document.getElementById("packageTitle").innerText="باقة الاختيار الاستراتيجي للإطلاق – 1000 درهم (سعر تفضيلي للسنة الأولى)";
-document.getElementById("p1").innerText="3 خدمات بظهور أولوي";
-document.getElementById("p2").innerText="3 مشاريع بانتشار معزز";
-document.getElementById("p3").innerText="تغطية جغرافية لإمارة واحدة";
-document.getElementById("p4").innerText="تموضع متقدم ضمن الفئات";
-document.getElementById("p5").innerText="شارة شريك معتمد لمرحلة الإطلاق";
-document.getElementById("p6").innerText="إعداد بنية ملف تعريفي احترافية";
-
-document.getElementById("formTitle").innerText="طلب الانضمام ضمن الشركات المعتمدة";
-document.getElementById("submitBtn").innerText="إرسال الطلب";
-document.getElementById("spotsText").innerText="عدد المقاعد المخصصة المتبقية:";
-document.getElementById("paymentTitle").innerText="طريقة الدفع";
-document.getElementById("cashText").innerText="كاش";
-document.getElementById("bankText").innerText="تحويل بنكي";
-document.getElementById("stripeText").innerText="بطاقة ائتمان (سترايب)";
-
-currentLang="ar";
-}else{
-location.reload();
-}
-}
 </script>
 
 </body>
