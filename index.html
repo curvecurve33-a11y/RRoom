@@ -1,171 +1,163 @@
 <!DOCTYPE html>
-<html lang="en" id="htmlTag">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoomApp | Relaunch Elite</title>
 
-<title>RoomApp | Relaunch 100 Selected Companies</title>
-<meta name="description" content="Official Relaunch – 100 Selected Companies Invitation">
-
-<meta property="og:title" content="RoomApp Relaunch">
-<meta property="og:description" content="100 Selected Companies Invitation">
+<meta property="og:title" content="RoomApp Relaunch – 100 Selected Companies">
 <meta property="og:image" content="https://roomapp.ae/og-image.jpg">
 <meta property="og:type" content="website">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
---black:#0b0b0c;
---gold:#C6A756;
---text:#e8e8e8;
---muted:#bdbdbd;
+--gold:#D4AF37;
+--dark:#0c0c0f;
+--glass:rgba(255,255,255,0.05);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Inter',sans-serif;
-background:#000;
-color:var(--text);
+background:radial-gradient(circle at 20% 20%,#1a1405,#000 60%);
+color:#fff;
 overflow-x:hidden;
 }
 
-/* خلفية لوكجري متحركة */
-body::before{
-content:"";
+/* Animated Gold Particles */
+canvas{
 position:fixed;
 top:0;
 left:0;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,#000 40%,#1a1405 50%,#000 60%);
-background-size:200% 200%;
-animation:luxMove 12s ease infinite;
 z-index:-1;
 }
 
-@keyframes luxMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
+/* Header */
 header{
-padding:20px 8%;
+padding:25px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid rgba(198,167,86,0.2);
+border-bottom:1px solid rgba(212,175,55,0.2);
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo img{
-height:60px;
-}
-
-.company-info{
+.company{
 font-size:13px;
-color:#ccc;
+line-height:1.6;
 }
 
-.company-info .license{
-color:var(--gold);
-}
+.gold{color:var(--gold);}
 
-.lang-btn{
-border:1px solid var(--gold);
-background:transparent;
-color:var(--gold);
-padding:8px 20px;
-border-radius:30px;
-cursor:pointer;
-}
-
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:100px 0;
+/* Hero */
+.section{
+padding:120px 8%;
 text-align:center;
 }
 
 .hero h1{
-font-size:42px;
+font-family:'Playfair Display',serif;
+font-size:56px;
 color:var(--gold);
-margin-bottom:20px;
+margin-bottom:25px;
+letter-spacing:1px;
 }
 
 .hero p{
-color:var(--muted);
-margin-bottom:40px;
+color:#bbb;
+max-width:700px;
+margin:auto;
+font-size:18px;
 }
 
-.box{
-background:rgba(17,17,17,0.85);
-padding:40px;
-border-radius:20px;
-border:1px solid rgba(198,167,86,0.3);
-margin-bottom:60px;
-backdrop-filter:blur(10px);
+/* Glass Card */
+.card{
+background:var(--glass);
+backdrop-filter:blur(14px);
+border:1px solid rgba(212,175,55,0.25);
+border-radius:24px;
+padding:60px;
+margin-top:80px;
+transition:.4s;
 }
 
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+}
+
+/* Grid */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
 }
 
-.item{
-background:#141414;
-padding:20px;
-border-radius:15px;
-border:1px solid rgba(198,167,86,0.2);
+.feature{
+padding:30px;
+border-radius:20px;
+border:1px solid rgba(212,175,55,0.2);
+transition:.3s;
 }
 
+.feature:hover{
+background:rgba(212,175,55,0.05);
+transform:scale(1.03);
+}
+
+/* Payment */
+.payment-box{
+margin-top:80px;
+}
+
+/* Form */
 input,textarea{
 width:100%;
-padding:15px;
-margin-bottom:15px;
-border-radius:10px;
-border:1px solid rgba(198,167,86,0.3);
-background:#141414;
+padding:18px;
+margin-bottom:20px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(212,175,55,0.2);
+border-radius:12px;
 color:#fff;
 }
 
 button{
+padding:16px;
 width:100%;
-padding:15px;
-border:1px solid var(--gold);
 background:transparent;
+border:1px solid var(--gold);
 color:var(--gold);
-border-radius:30px;
+border-radius:40px;
 cursor:pointer;
+transition:.3s;
+font-weight:600;
+}
+
+button:hover{
+background:var(--gold);
+color:#000;
 }
 
 footer{
-padding:60px 8%;
-border-top:1px solid rgba(198,167,86,0.2);
-color:#aaa;
+padding:80px 8%;
+border-top:1px solid rgba(212,175,55,0.2);
+margin-top:120px;
 }
 
 .footer-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:40px;
 }
 
 .title{
 color:var(--gold);
 margin-bottom:15px;
+font-weight:600;
 }
-
-a{color:var(--gold);text-decoration:none;}
 
 [dir="rtl"]{
 text-align:right;
@@ -175,63 +167,61 @@ text-align:right;
 
 <body>
 
+<canvas id="particles"></canvas>
+
 <header>
-<div class="logo">
-<img src="room-logo.jpg">
-<div class="company-info">
+<div class="company">
 RoomApp Advertising Services L.L.C – S.P.C<br>
-<span class="license">Trade License No: CN-5533268</span><br>
+<span class="gold">Trade License No: CN-5533268</span><br>
 Abu Dhabi, UAE
 </div>
-</div>
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">العربية</button>
+<button onclick="toggleLang()" id="langBtn">العربية</button>
 </header>
 
-<div class="container hero">
+<section class="section hero">
+<h1 id="mainTitle">100 Selected Companies</h1>
+<p id="mainDesc">Exclusive invitation for verified companies to join RoomApp’s luxury relaunch positioning.</p>
 
-<h1 id="title">Relaunch 100 Selected Companies</h1>
-<p id="desc">We are selecting 100 verified companies for premium positioning before public expansion.</p>
+<div class="card">
+<h2 class="gold" id="packageTitle">Elite Relaunch Package – 1000 AED</h2>
 
-<div class="box">
-<h3 id="packageTitle" style="color:#C6A756;margin-bottom:25px;">Elite Relaunch Package – 1000 AED</h3>
 <div class="grid">
-<div class="item" id="f1">Premium Profile Setup</div>
-<div class="item" id="f2">Priority Visibility</div>
-<div class="item" id="f3">Verified Badge</div>
-<div class="item" id="f4">Homepage Exposure</div>
-<div class="item" id="f5">Project Showcase</div>
-<div class="item" id="f6">Strategic Emirate Placement</div>
+<div class="feature" id="f1">Premium Profile Setup</div>
+<div class="feature" id="f2">Priority Category Visibility</div>
+<div class="feature" id="f3">Verified Company Badge</div>
+<div class="feature" id="f4">Homepage Rotational Exposure</div>
+<div class="feature" id="f5">Advanced Project Showcase</div>
+<div class="feature" id="f6">Strategic Emirate Positioning</div>
 </div>
 </div>
 
-<div class="box">
-<h3 class="title" id="paymentTitle">Payment Methods</h3>
+<div class="card payment-box">
+<h2 class="gold" id="paymentTitle">Payment Methods</h2>
 <div class="grid">
-<div class="item" id="pay1">Bank Transfer (UAE)</div>
-<div class="item" id="pay2">International Transfer</div>
-<div class="item" id="pay3">Invoice Will Be Issued</div>
+<div class="feature" id="p1">Bank Transfer – UAE</div>
+<div class="feature" id="p2">International Transfer (SWIFT)</div>
+<div class="feature" id="p3">Official Tax Invoice Issued</div>
 </div>
 </div>
 
-<div class="box">
-<h3 class="title" id="applyTitle">Apply Now</h3>
+<div class="card">
+<h2 class="gold" id="applyTitle">Apply Now</h2>
 
-<input type="text" id="company" placeholder="Company Name">
-<input type="text" id="license" placeholder="Trade License Number">
-<input type="text" id="emirate" placeholder="Emirate">
-<input type="text" id="contact" placeholder="Contact Person">
-<input type="email" id="email" placeholder="Email">
-<input type="tel" id="phone" placeholder="Phone Number">
+<input id="company" placeholder="Company Name">
+<input id="license" placeholder="Trade License Number">
+<input id="emirate" placeholder="Emirate">
+<input id="contact" placeholder="Contact Person">
+<input id="email" placeholder="Email">
+<input id="phone" placeholder="Phone Number">
 <textarea id="notes" placeholder="Company Description"></textarea>
 
 <button id="submitBtn">Submit Application</button>
 </div>
 
-</div>
+</section>
 
 <footer>
 <div class="footer-grid">
-
 <div>
 <div class="title">Company Information</div>
 RoomApp Advertising Services L.L.C – S.P.C<br>
@@ -250,39 +240,59 @@ www.roomapp.ae
 <div class="title">© 2026 RoomApp</div>
 All Rights Reserved
 </div>
-
 </div>
 </footer>
 
 <script>
-let lang="en";
+/* Luxury Particles */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 
+let particles=[];
+for(let i=0;i<60;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(212,175,55,0.6)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.y+=p.d;
+if(p.y>canvas.height){p.y=0;}
+});
+requestAnimationFrame(draw);
+}
+draw();
+
+/* Translation */
+let lang="en";
 function toggleLang(){
 if(lang==="en"){
 document.documentElement.setAttribute("dir","rtl");
-document.getElementById("langBtn").innerText="English";
-document.getElementById("title").innerText="100 شركة مختارة بمناسبة إعادة الإطلاق";
-document.getElementById("desc").innerText="نختار 100 شركة معتمدة للظهور المميز قبل التوسع العام.";
-document.getElementById("packageTitle").innerText="باقة النخبة لإعادة الإطلاق – 1000 درهم";
+document.getElementById("mainTitle").innerText="100 شركة مختارة";
+document.getElementById("mainDesc").innerText="دعوة حصرية للشركات المعتمدة للانضمام إلى إعادة الإطلاق الفاخرة.";
+document.getElementById("packageTitle").innerText="باقة النخبة – 1000 درهم";
 document.getElementById("paymentTitle").innerText="طرق الدفع";
 document.getElementById("applyTitle").innerText="قدم الآن";
-document.getElementById("f1").innerText="إعداد ملف احترافي";
-document.getElementById("f2").innerText="أولوية الظهور";
-document.getElementById("f3").innerText="شارة شركة معتمدة";
-document.getElementById("f4").innerText="ظهور في الصفحة الرئيسية";
-document.getElementById("f5").innerText="عرض المشاريع";
-document.getElementById("f6").innerText="تمركز داخل الإمارة";
-document.getElementById("pay1").innerText="تحويل بنكي داخل الإمارات";
-document.getElementById("pay2").innerText="تحويل دولي";
-document.getElementById("pay3").innerText="سيتم إصدار فاتورة رسمية";
+document.getElementById("submitBtn").innerText="إرسال الطلب";
 document.getElementById("company").placeholder="اسم الشركة";
-document.getElementById("license").placeholder="رقم الرخصة التجارية";
+document.getElementById("license").placeholder="رقم الرخصة";
 document.getElementById("emirate").placeholder="الإمارة";
 document.getElementById("contact").placeholder="اسم المسؤول";
 document.getElementById("email").placeholder="البريد الإلكتروني";
 document.getElementById("phone").placeholder="رقم الهاتف";
-document.getElementById("notes").placeholder="وصف مختصر عن الشركة";
-document.getElementById("submitBtn").innerText="إرسال الطلب";
+document.getElementById("notes").placeholder="وصف الشركة";
+document.getElementById("langBtn").innerText="English";
 lang="ar";
 }else{
 location.reload();
