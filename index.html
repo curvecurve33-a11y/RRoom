@@ -10,7 +10,9 @@
 <style>
 :root{
 --black:#0b0b0c;
+--dark:#111;
 --gold:#C6A756;
+--gold-soft:rgba(198,167,86,0.15);
 --text:#f5f5f5;
 --muted:#9a9a9a;
 }
@@ -21,9 +23,11 @@ body{
 font-family:'Inter',sans-serif;
 background:var(--black);
 color:var(--text);
+overflow-x:hidden;
 transition:.3s;
 }
 
+/* RTL Support */
 body.ar{
 direction:rtl;
 font-family:'Cairo',sans-serif;
@@ -31,21 +35,23 @@ font-family:'Cairo',sans-serif;
 
 .container{
 width:90%;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 }
 
+/* Header */
 header{
 position:fixed;
 top:0;
 width:100%;
-background:#111;
-padding:15px 8%;
+background:rgba(11,11,12,0.9);
+backdrop-filter:blur(12px);
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:999;
-border-bottom:1px solid rgba(198,167,86,0.2);
+border-bottom:1px solid rgba(198,167,86,0.1);
 }
 
 .logo-box{
@@ -55,86 +61,167 @@ gap:15px;
 }
 
 .logo-box img{
-height:55px;
+height:60px;
+filter: drop-shadow(0 0 20px rgba(198,167,86,0.35));
 }
 
-.company-info{
-font-size:14px;
+.company-info h2{
+font-size:16px;
+font-weight:600;
+color:var(--gold);
+}
+
+.company-info p{
+font-size:12px;
+color:var(--muted);
+margin-top:3px;
 }
 
 .lang-switch{
 cursor:pointer;
 color:var(--gold);
-font-weight:600;
 border:1px solid var(--gold);
-padding:6px 14px;
-border-radius:20px;
+padding:6px 16px;
+border-radius:30px;
+font-weight:600;
+transition:.3s;
 }
 
+.lang-switch:hover{
+background:var(--gold);
+color:black;
+}
+
+/* Hero */
 .hero{
-padding-top:180px;
+padding-top:200px;
 text-align:center;
 }
 
 .hero h1{
-font-size:46px;
-margin-bottom:20px;
+font-size:56px;
+margin-bottom:25px;
+line-height:1.2;
+}
+
+.hero h1 span{
+color:var(--gold);
 }
 
 .hero p{
 color:var(--muted);
-margin-bottom:40px;
+font-size:20px;
+max-width:750px;
+margin:auto;
+margin-bottom:50px;
 }
 
+/* Package Box */
 .package-box{
-background:#111;
-padding:40px;
-border-radius:16px;
+background:linear-gradient(180deg,#111 0%,#0b0b0c 100%);
 border:1px solid rgba(198,167,86,0.2);
+border-radius:20px;
+padding:50px;
+box-shadow:0 0 80px rgba(198,167,86,0.06);
+transition:.4s;
+}
+
+.package-box:hover{
+box-shadow:0 0 120px rgba(198,167,86,0.12);
+}
+
+.package-box h3{
+color:var(--gold);
+margin-bottom:30px;
+font-size:24px;
+text-align:center;
+}
+
+.package-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .package-item{
-margin-bottom:12px;
+padding:20px;
+background:#141414;
+border-radius:14px;
+border:1px solid rgba(198,167,86,0.15);
+transition:.3s;
 }
 
+.package-item:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px var(--gold-soft);
+}
+
+/* Form */
 .form-section{
-margin-top:80px;
-padding:40px;
+margin-top:100px;
+padding:60px;
 background:#111;
-border-radius:16px;
+border-radius:20px;
 border:1px solid rgba(198,167,86,0.2);
+}
+
+.form-section h2{
+color:var(--gold);
+margin-bottom:30px;
+text-align:center;
 }
 
 input,textarea{
 width:100%;
-padding:14px;
-margin-bottom:14px;
-background:#141414;
+padding:16px;
+margin-bottom:18px;
+border-radius:10px;
 border:1px solid rgba(198,167,86,0.2);
-border-radius:8px;
-color:white;
+background:#141414;
+color:#fff;
+font-size:15px;
+}
+
+input:focus,textarea:focus{
+outline:none;
+border:1px solid var(--gold);
+box-shadow:0 0 20px var(--gold-soft);
+}
+
+textarea{
+min-height:120px;
+resize:none;
 }
 
 button{
 width:100%;
-padding:14px;
+padding:16px;
 border:1px solid var(--gold);
 background:transparent;
 color:var(--gold);
-border-radius:30px;
+border-radius:40px;
+font-weight:600;
 cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
 background:var(--gold);
 color:black;
+box-shadow:0 0 30px rgba(198,167,86,0.4);
 }
 
 footer{
 text-align:center;
-padding:40px;
-margin-top:80px;
+padding:60px;
 color:#777;
+margin-top:120px;
+border-top:1px solid rgba(198,167,86,0.1);
+}
+
+@media(max-width:768px){
+.hero h1{font-size:38px;}
+.hero p{font-size:16px;}
 }
 </style>
 </head>
@@ -145,8 +232,8 @@ color:#777;
 <div class="logo-box">
 <img src="room-logo.jpg" alt="RoomApp">
 <div class="company-info">
-RoomApp Advertising Services L.L.C – S.P.C<br>
-CN-5533268 | Abu Dhabi
+<h2>RoomApp Advertising Services L.L.C – S.P.C</h2>
+<p>CN-5533268 | Abu Dhabi, UAE</p>
 </div>
 </div>
 
@@ -154,34 +241,37 @@ CN-5533268 | Abu Dhabi
 </header>
 
 <section class="hero container">
-<h1 id="title">Founding 100 Strategic Partners</h1>
+<h1 id="title"><span>Founding 100</span> Strategic Partners</h1>
 <p id="subtitle">
-Position your company among the first verified construction firms on RoomApp across the UAE.
+Position your company among the first verified construction firms professionally showcasing projects and services on RoomApp across the UAE.
 </p>
 
 <div class="package-box">
 <h3 id="packageTitle">Founding Partner Package – 1000 AED (Year 1)</h3>
-<div class="package-item">3 Highlighted Services</div>
-<div class="package-item">3 Featured Projects</div>
-<div class="package-item">1 Emirate Coverage</div>
-<div class="package-item">Official Founding Partner Badge</div>
+
+<div class="package-list">
+<div class="package-item" id="p1">3 Highlighted Services</div>
+<div class="package-item" id="p2">3 Featured Projects</div>
+<div class="package-item" id="p3">1 Emirate Coverage</div>
+<div class="package-item" id="p4">Official Founding Partner Badge</div>
+</div>
 </div>
 
 <div class="form-section">
 <h2 id="applyTitle">Apply as Founding Partner</h2>
 
 <form action="https://formspree.io/f/yourID" method="POST">
-<input type="text" name="company" placeholder="Company Name" required>
-<input type="email" name="email" placeholder="Email Address" required>
-<textarea name="desc" placeholder="Brief Description"></textarea>
+<input type="text" placeholder="Company Name" required>
+<input type="email" placeholder="Email Address" required>
+<textarea placeholder="Brief Description"></textarea>
 <button type="submit" id="submitBtn">Submit</button>
 </form>
-
 </div>
+
 </section>
 
 <footer>
-© 2026 RoomApp | UAE
+© 2026 RoomApp Advertising Services L.L.C – S.P.C | Abu Dhabi, UAE
 </footer>
 
 <script>
@@ -194,19 +284,36 @@ const btn=document.querySelector(".lang-switch");
 
 if(isArabic){
 body.classList.add("ar");
-document.getElementById("title").innerText="الشركاء الاستراتيجيون المؤسسون (100)";
+document.documentElement.lang="ar";
+
+document.getElementById("title").innerHTML="<span>الشركاء الاستراتيجيون المؤسسون</span> (100)";
 document.getElementById("subtitle").innerText="ضع شركتك ضمن أولى الشركات المعتمدة على روم أب في الإمارات.";
 document.getElementById("packageTitle").innerText="باقة الشريك المؤسس – 1000 درهم (السنة الأولى)";
 document.getElementById("applyTitle").innerText="قدم الآن كشريك مؤسس";
 document.getElementById("submitBtn").innerText="إرسال";
+
+document.getElementById("p1").innerText="3 خدمات مميزة";
+document.getElementById("p2").innerText="3 مشاريع مميزة";
+document.getElementById("p3").innerText="تغطية إمارة واحدة";
+document.getElementById("p4").innerText="شارة الشريك المؤسس الرسمية";
+
 btn.innerText="EN";
+
 }else{
 body.classList.remove("ar");
-document.getElementById("title").innerText="Founding 100 Strategic Partners";
-document.getElementById("subtitle").innerText="Position your company among the first verified construction firms on RoomApp across the UAE.";
+document.documentElement.lang="en";
+
+document.getElementById("title").innerHTML="<span>Founding 100</span> Strategic Partners";
+document.getElementById("subtitle").innerText="Position your company among the first verified construction firms professionally showcasing projects and services on RoomApp across the UAE.";
 document.getElementById("packageTitle").innerText="Founding Partner Package – 1000 AED (Year 1)";
 document.getElementById("applyTitle").innerText="Apply as Founding Partner";
 document.getElementById("submitBtn").innerText="Submit";
+
+document.getElementById("p1").innerText="3 Highlighted Services";
+document.getElementById("p2").innerText="3 Featured Projects";
+document.getElementById("p3").innerText="1 Emirate Coverage";
+document.getElementById("p4").innerText="Official Founding Partner Badge";
+
 btn.innerText="AR";
 }
 }
