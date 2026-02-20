@@ -3,16 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RoomApp | Relaunch 100 Selected Companies</title>
+<meta name="description" content="RoomApp Official Relaunch – 100 Selected Companies Invitation. Premium visibility and verified positioning in the UAE market.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="RoomApp | Relaunch 100 Selected Companies">
+<meta property="og:description" content="Official Relaunch Invitation – Limited 100 Companies. Premium Visibility & Verified Positioning.">
+<meta property="og:image" content="https://roomapp.ae/og-image.jpg">
+<meta property="og:url" content="https://roomapp.ae">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RoomApp Relaunch">
+<meta name="twitter:description" content="100 Selected Companies Invitation">
+<meta name="twitter:image" content="https://roomapp.ae/og-image.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
 --black:#0b0b0c;
---dark:#111;
 --gold:#C6A756;
---gold-soft:rgba(198,167,86,0.15);
 --text:#e8e8e8;
 --muted:#bdbdbd;
 }
@@ -23,249 +36,150 @@ body{
 font-family:'Inter',sans-serif;
 background:var(--black);
 color:var(--text);
-overflow-x:hidden;
-scroll-behavior:smooth;
 line-height:1.6;
-letter-spacing:.2px;
-}
-
-/* ===== Scroll Progress Bar ===== */
-.progress-bar{
-position:fixed;
-top:0;
-left:0;
-height:3px;
-background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
-width:0%;
-z-index:2000;
-box-shadow:0 0 15px var(--gold);
-}
-
-/* ===== Mouse Light Effect ===== */
-.mouse-light{
-position:fixed;
-width:600px;
-height:600px;
-pointer-events:none;
-background:radial-gradient(circle,var(--gold-soft),transparent 60%);
-transform:translate(-50%,-50%);
-z-index:-1;
-}
-
-/* ===== Parallax Background ===== */
-.parallax{
-position:fixed;
-top:0;
-left:0;
-width:120%;
-height:120%;
-background:
-radial-gradient(circle at 20% 30%, rgba(198,167,86,0.12), transparent 40%),
-radial-gradient(circle at 80% 70%, rgba(198,167,86,0.08), transparent 50%);
-z-index:-2;
-will-change:transform;
-}
-
-/* ===== Floating Orbs ===== */
-.orb{
-position:fixed;
-width:200px;
-height:200px;
-background:radial-gradient(circle,var(--gold-soft),transparent 70%);
-border-radius:50%;
-filter:blur(40px);
-animation:float 20s ease-in-out infinite alternate;
-z-index:-2;
-}
-.orb:nth-child(2){top:60%;left:70%;animation-duration:25s;}
-.orb:nth-child(3){top:20%;left:80%;animation-duration:30s;}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-100%{transform:translateY(-80px);}
 }
 
 header{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(11,11,12,0.6);
-backdrop-filter:blur(25px);
-padding:18px 8%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:999;
-border-bottom:1px solid rgba(198,167,86,0.15);
+border-bottom:1px solid rgba(198,167,86,0.2);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
 }
 
 .logo img{
 height:60px;
-filter: drop-shadow(0 0 25px rgba(198,167,86,0.4));
 }
 
 .company-info{
-font-size:14px;
-color:#cfcfcf;
+font-size:13px;
+color:#ccc;
 line-height:1.6;
 }
 
-.gold{color:var(--gold);}
+.company-info .license{
+color:var(--gold);
+}
 
 .lang-btn{
 border:1px solid var(--gold);
 background:transparent;
 color:var(--gold);
-padding:9px 22px;
+padding:8px 20px;
 border-radius:30px;
 cursor:pointer;
-transition:.4s;
-}
-.lang-btn:hover{
-background:var(--gold);
-color:#000;
-box-shadow:0 0 25px rgba(198,167,86,0.4);
 }
 
 .container{
 width:90%;
 max-width:1100px;
 margin:auto;
-}
-
-section{
-padding:140px 0;
-opacity:0;
-transform:translateY(50px);
-transition:1s ease;
-}
-section.reveal{
-opacity:1;
-transform:translateY(0);
-}
-
-.hero{
-padding-top:220px;
+padding:100px 0;
 text-align:center;
 }
 
 .hero h1{
-font-size:60px;
-margin-bottom:18px;
-font-weight:600;
-background:linear-gradient(90deg,var(--gold),#fff,var(--gold));
-background-size:200%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:shine 6s linear infinite;
-}
-
-@keyframes shine{
-0%{background-position:0%;}
-100%{background-position:200%;}
+font-size:44px;
+color:var(--gold);
+margin-bottom:20px;
 }
 
 .hero p{
 color:var(--muted);
-font-size:20px;
-max-width:760px;
-margin:auto;
-margin-bottom:30px;
-}
-
-.package-box,
-.form-section{
-background:rgba(20,20,20,0.6);
-backdrop-filter:blur(30px);
-border:1px solid rgba(198,167,86,0.25);
-border-radius:22px;
-box-shadow:0 0 80px rgba(198,167,86,0.05);
+margin-bottom:40px;
 }
 
 .package-box{
-margin-top:50px;
-padding:45px 50px;
+background:#111;
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(198,167,86,0.3);
+margin-bottom:60px;
 }
 
 .package-list{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:24px;
-margin-top:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .package-item{
-padding:28px 20px;
 background:#141414;
-border-radius:16px;
-border:1px solid rgba(198,167,86,0.15);
-text-align:center;
-transition:.4s;
-}
-.package-item:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 25px 50px rgba(198,167,86,0.15);
+padding:20px;
+border-radius:15px;
+border:1px solid rgba(198,167,86,0.2);
 }
 
 .form-section{
-margin-top:90px;
-padding:55px 60px;
+background:#111;
+padding:50px;
+border-radius:20px;
+border:1px solid rgba(198,167,86,0.3);
 }
 
 input,textarea{
 width:100%;
-padding:18px 22px;
-margin-bottom:22px;
-border-radius:14px;
-border:1px solid rgba(198,167,86,0.2);
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+border:1px solid rgba(198,167,86,0.3);
 background:#141414;
 color:#fff;
 }
 
-.btn{
+button.submit-btn{
 width:100%;
-padding:18px;
+padding:15px;
 border:1px solid var(--gold);
-color:var(--gold);
 background:transparent;
-border-radius:40px;
+color:var(--gold);
+border-radius:30px;
 cursor:pointer;
-font-weight:600;
-transition:.3s;
-}
-.btn:hover{
-background:var(--gold);
-color:#000;
-box-shadow:0 0 40px rgba(198,167,86,0.4);
 }
 
 .success-message{
 display:none;
-margin-top:20px;
+margin-top:10px;
 color:#4CAF50;
-font-weight:600;
-text-align:center;
 }
 
 .spots{
-margin-top:35px;
-text-align:center;
-font-size:22px;
-font-weight:500;
+margin-top:20px;
+font-size:18px;
 }
 
 footer{
-text-align:center;
-padding:70px;
-color:#888;
-border-top:1px solid rgba(198,167,86,0.1);
-margin-top:140px;
+margin-top:100px;
+padding:60px 8%;
+border-top:1px solid rgba(198,167,86,0.2);
+color:#aaa;
 }
 
-[dir="rtl"]{text-align:right;}
-[dir="rtl"] input,
-[dir="rtl"] textarea{ text-align:right; }
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
 
+.footer-title{
+color:var(--gold);
+margin-bottom:15px;
+}
+
+a{
+color:var(--gold);
+text-decoration:none;
+}
+
+[dir="rtl"]{
+text-align:right;
+}
 </style>
 </head>
 
@@ -275,17 +189,20 @@ margin-top:140px;
 <div class="logo">
 <img src="room-logo.jpg" alt="Room Logo">
 <div class="company-info">
-<strong>RoomApp Advertising Services L.L.C – S.P.C</strong><br>
+RoomApp Advertising Services L.L.C – S.P.C<br>
+<span class="license">Trade License No: CN-5533268</span><br>
 Abu Dhabi, UAE
 </div>
 </div>
 <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
 </header>
 
-<section class="hero container">
-<h1 id="heroTitle"><span class="gold">Relaunch 100</span> Selected Companies</h1>
+<div class="container hero">
+
+<h1 id="heroTitle">Relaunch 100 Selected Companies</h1>
+
 <p id="heroDesc">
-To mark the official relaunch of RoomApp, we are strategically selecting 100 verified companies to experience the full upgraded platform before public expansion.
+As part of RoomApp’s official relaunch, we are selecting 100 verified companies to benefit from premium visibility before public expansion.
 </p>
 
 <div class="package-box">
@@ -296,55 +213,88 @@ To mark the official relaunch of RoomApp, we are strategically selecting 100 ver
 <div class="package-item" id="p2">Priority Category Visibility</div>
 <div class="package-item" id="p3">Advanced Project Showcase</div>
 <div class="package-item" id="p4">Verified Company Badge</div>
-<div class="package-item" id="p5">Rotational Homepage Exposure</div>
-<div class="package-item" id="p6">Strategic Positioning in Your Emirate</div>
+<div class="package-item" id="p5">Homepage Rotational Exposure</div>
+<div class="package-item" id="p6">Strategic Emirate Positioning</div>
 </div>
 </div>
-</section>
 
-<section class="container">
 <div class="form-section">
-<h2 class="gold" id="formTitle">Apply for Relaunch Selection</h2>
+<h2 id="formTitle" style="color:#C6A756;margin-bottom:20px;">Apply for Selection</h2>
 
-<form id="partnerForm">
-<input type="text" placeholder="Company Name" required>
-<input type="text" placeholder="Trade License Number" required>
-<input type="text" placeholder="Emirate" required>
-<input type="text" placeholder="Contact Person" required>
-<input type="email" placeholder="Email Address" required>
-<input type="tel" placeholder="Phone Number" required>
-<textarea placeholder="Brief Description of Services"></textarea>
+<input type="text" id="company" placeholder="Company Name">
+<input type="text" id="licenseInput" placeholder="Trade License Number">
+<input type="text" id="emirate" placeholder="Emirate">
+<input type="text" id="contact" placeholder="Contact Person">
+<input type="email" id="email" placeholder="Email Address">
+<input type="tel" id="phone" placeholder="Phone Number">
+<textarea id="desc" placeholder="Brief Description of Services"></textarea>
 
-<button type="submit" class="btn">Submit Application</button>
+<button class="submit-btn" onclick="submitForm()" id="submitBtn">Submit Application</button>
 
 <div class="success-message" id="successMsg">
-Application Submitted Successfully ✔ <br>
-Our team will contact you shortly.
+Application Submitted Successfully ✔
 </div>
-</form>
 
 <div class="spots">
-Selected Companies Remaining:
-<span class="gold" id="spotCount">100</span>
+<span id="spotsText">Selected Companies Remaining:</span>
+<span style="color:#C6A756;" id="spotCount">100</span>
+</div>
+
 </div>
 </div>
-</section>
 
 <footer>
-© 2026 RoomApp Advertising Services L.L.C – S.P.C
+<div class="footer-grid">
+
+<div>
+<div class="footer-title">Company Information</div>
+RoomApp Advertising Services L.L.C – S.P.C<br>
+Trade License No: CN-5533268<br>
+Abu Dhabi, United Arab Emirates
+</div>
+
+<div>
+<div class="footer-title">Contact</div>
+Phone: <a href="tel:0509900455">0509900455</a><br>
+Email: <a href="mailto:info@roomapp.ae">info@roomapp.ae</a><br>
+Website: <a href="https://roomapp.ae">www.roomapp.ae</a>
+</div>
+
+<div>
+<div class="footer-title">© 2026 RoomApp</div>
+All Rights Reserved
+</div>
+
+</div>
 </footer>
 
 <script>
+let currentLang="en";
 let spots=100;
-document.getElementById("partnerForm").addEventListener("submit",function(e){
-e.preventDefault();
+
+function submitForm(){
 document.getElementById("successMsg").style.display="block";
 if(spots>0){
 spots--;
 document.getElementById("spotCount").innerText=spots;
 }
-this.reset();
-});
+}
+
+function toggleLanguage(){
+if(currentLang==="en"){
+document.documentElement.setAttribute("dir","rtl");
+document.getElementById("langBtn").innerText="English";
+document.getElementById("heroTitle").innerText="100 شركة مختارة بمناسبة إعادة الإطلاق";
+document.getElementById("heroDesc").innerText="نختار 100 شركة معتمدة للاستفادة من الظهور المميز قبل التوسع العام.";
+document.getElementById("packageTitle").innerText="باقة النخبة لإعادة الإطلاق – 1000 درهم";
+document.getElementById("formTitle").innerText="التقديم للاختيار";
+document.getElementById("submitBtn").innerText="إرسال الطلب";
+document.getElementById("spotsText").innerText="المقاعد المتبقية:";
+currentLang="ar";
+}else{
+location.reload();
+}
+}
 </script>
 
 </body>
