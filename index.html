@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RoomApp Elite 100 – Relaunch 2026</title>
 
+<!-- ===== WHATSAPP PREVIEW ===== -->
 <meta property="og:title" content="RoomApp Elite 100 – Relaunch 2026">
 <meta property="og:description" content="Exclusive selection of 100 high-value construction companies for the official RoomApp relaunch.">
 <meta property="og:image" content="https://partners.roomapp.ae/room-logo-preview.jpg">
 <meta property="og:url" content="https://partners.roomapp.ae/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://partners.roomapp.ae/room-logo-preview.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -17,16 +22,19 @@
 :root{
 --gold:#C6A756;
 --gold-light:#e5c878;
---dark:#0d0d0d;
+--card:#111;
+--white:#ffffff;
+--gray:#bfbfbf;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Inter',sans-serif;
-background:#000;
 color:#fff;
+background:#000;
 overflow-x:hidden;
+position:relative;
 }
 
 body.ar{
@@ -34,39 +42,71 @@ font-family:'Cairo',sans-serif;
 direction:rtl;
 }
 
-/* ===== Animated Background ===== */
+/* ===== ANIMATED BACKGROUND ===== */
 body::before{
 content:"";
 position:fixed;
+top:0;
+left:0;
 width:200%;
 height:200%;
 background:
 radial-gradient(circle at 20% 30%, rgba(198,167,86,0.18), transparent 40%),
 radial-gradient(circle at 80% 70%, rgba(198,167,86,0.15), transparent 40%);
 animation:bgMove 18s ease-in-out infinite alternate;
-z-index:-1;
-}
-@keyframes bgMove{
-0%{transform:translate(-5%,-5%) scale(1);}
-100%{transform:translate(-12%,-8%) scale(1.15);}
+z-index:-2;
 }
 
-/* Header */
+@keyframes bgMove{
+0%{transform:translate(-5%,-5%) scale(1);}
+100%{transform:translate(-12%,-10%) scale(1.1);}
+}
+
+body::after{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background-image:radial-gradient(rgba(198,167,86,0.4) 1px, transparent 1px);
+background-size:60px 60px;
+animation:particles 60s linear infinite;
+opacity:0.15;
+z-index:-1;
+}
+
+@keyframes particles{
+from{background-position:0 0;}
+to{background-position:400px 800px;}
+}
+
+/* ===== HEADER ===== */
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 8%;
+background:rgba(0,0,0,0.95);
 border-bottom:1px solid rgba(198,167,86,0.3);
 }
 
-.logo-frame{
-padding:14px;
-border-radius:20px;
-border:1px solid rgba(198,167,86,0.6);
-box-shadow:0 0 40px rgba(198,167,86,0.6);
+.logo-area{
+display:flex;
+align-items:center;
+gap:25px;
 }
-.logo-frame img{height:80px;}
+
+.logo-frame{
+padding:12px;
+border-radius:18px;
+background:linear-gradient(145deg,#1a1a1a,#000);
+border:1px solid rgba(198,167,86,0.6);
+box-shadow:0 0 25px rgba(198,167,86,0.6);
+}
+
+.logo-frame img{height:85px;}
+
+.company-info strong{font-size:20px;}
+.company-info span{color:var(--gray);font-size:14px;}
 
 .lang-btn{
 border:1px solid var(--gold);
@@ -77,6 +117,7 @@ border-radius:30px;
 cursor:pointer;
 }
 
+/* ===== HERO ===== */
 .hero{text-align:center;padding:120px 10% 60px;}
 
 .circle{
@@ -88,74 +129,90 @@ background:radial-gradient(circle,var(--gold-light),#000);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
+font-size:26px;
 font-weight:700;
 color:#000;
-box-shadow:0 0 150px rgba(198,167,86,0.8);
+box-shadow:0 0 100px rgba(198,167,86,0.6);
 margin-bottom:40px;
-animation:pulse 4s ease-in-out infinite, floatY 6s ease-in-out infinite;
 text-align:center;
+animation:pulse 4s ease-in-out infinite, floatY 6s ease-in-out infinite;
 }
+
 @keyframes pulse{
-0%{box-shadow:0 0 80px rgba(198,167,86,0.5);}
-50%{box-shadow:0 0 200px rgba(198,167,86,1);}
-100%{box-shadow:0 0 80px rgba(198,167,86,0.5);}
+0%{box-shadow:0 0 70px rgba(198,167,86,0.4);}
+50%{box-shadow:0 0 150px rgba(198,167,86,0.95);}
+100%{box-shadow:0 0 70px rgba(198,167,86,0.4);}
 }
+
 @keyframes floatY{
 0%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
+50%{transform:translateY(-15px);}
 100%{transform:translateY(0);}
 }
 
-.hero h1{font-size:44px;margin-bottom:20px;}
-.hero p{font-size:20px;max-width:850px;margin:auto;color:#bbb;}
+.hero h1{font-size:42px;margin-bottom:20px;}
+.hero p{font-size:20px;color:var(--gray);max-width:850px;margin:auto;}
 
+/* ===== SECTIONS ===== */
 .section-box{
-max-width:1100px;
+max-width:1150px;
 margin:90px auto;
-padding:70px;
-background:rgba(13,13,13,0.95);
+padding:60px;
+background:rgba(17,17,17,0.85);
 border-radius:30px;
 border:1px solid rgba(198,167,86,0.3);
-box-shadow:0 0 60px rgba(198,167,86,0.2);
+box-shadow:0 0 40px rgba(198,167,86,0.15);
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
 }
 
-/* Form */
+.section-box.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.package-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.package-item{
+background:#0d0d0d;
+padding:35px;
+border-radius:20px;
+border:1px solid rgba(198,167,86,0.2);
+text-align:center;
+transition:.4s;
+}
+
+.package-item:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 40px rgba(198,167,86,0.5);
+}
+
 input,textarea{
 width:100%;
 padding:18px;
 margin-bottom:20px;
 border-radius:14px;
-border:1px solid rgba(198,167,86,0.25);
+border:1px solid rgba(198,167,86,0.2);
 background:#000;
 color:#fff;
 }
 
-.payment-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin:30px 0;
+.payment-card{
+background:#0d0d0d;
+border-radius:20px;
+padding:25px;
+text-align:center;
+border:1px solid rgba(198,167,86,0.2);
+cursor:pointer;
+margin-bottom:15px;
 }
 
-.payment-card{
-background:var(--dark);
-padding:30px;
-border-radius:20px;
-border:1px solid rgba(198,167,86,0.3);
-cursor:pointer;
-transition:.4s;
-text-align:center;
-position:relative;
-}
-.payment-card:hover{
-box-shadow:0 0 40px rgba(198,167,86,0.6);
-}
 .payment-card input{display:none;}
-.payment-card.active{
-border:1px solid var(--gold);
-box-shadow:0 0 60px rgba(198,167,86,0.9);
-}
 
 .btn{
 width:100%;
@@ -167,15 +224,16 @@ color:var(--gold);
 font-size:18px;
 cursor:pointer;
 }
+
 .btn:hover{
 background:var(--gold);
 color:#000;
-box-shadow:0 0 40px var(--gold);
 }
 
 footer{
 margin-top:120px;
 padding:60px;
+background:#000;
 text-align:center;
 border-top:1px solid rgba(198,167,86,0.3);
 color:#aaa;
@@ -186,10 +244,16 @@ color:#aaa;
 <body>
 
 <header>
+<div class="logo-area">
 <div class="logo-frame">
 <img src="room-logo.jpg">
 </div>
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">العربية</button>
+<div class="company-info">
+<strong>RoomApp Advertising Services L.L.C – S.P.C</strong><br>
+<span>CR Number: CN-5533268 – Abu Dhabi, UAE</span>
+</div>
+</div>
+<button class="lang-btn" onclick="toggleLang()">العربية</button>
 </header>
 
 <section class="hero">
@@ -197,14 +261,27 @@ color:#aaa;
 Elite 100<br>Relaunch<br>Selection
 </div>
 <h1 id="title">RoomApp Elite 100 – Relaunch Selection 2026</h1>
-<p id="desc">An exclusive selection of 100 high-value construction companies chosen for the official RoomApp platform relaunch.</p>
+<p id="desc">
+An exclusive selection of 100 high-value construction companies chosen for the official RoomApp platform relaunch.
+</p>
+</section>
+
+<section class="section-box">
+<h3 id="packageTitle">Elite Partner Package – 1000 AED (Year 1)</h3>
+<div class="package-list">
+<div class="package-item" id="s1">3 Highlighted Services</div>
+<div class="package-item" id="s2">3 Featured Projects</div>
+<div class="package-item" id="s3">1 Emirate Coverage</div>
+<div class="package-item" id="s4">Priority Category Visibility</div>
+<div class="package-item" id="s5">Elite Partner Badge</div>
+<div class="package-item" id="s6">Professional Profile Setup</div>
+</div>
 </section>
 
 <section class="section-box">
 <h3 id="applyTitle">Apply for Elite Selection</h3>
 
 <form id="eliteForm">
-
 <input name="company" placeholder="Company Name" required>
 <input name="license" placeholder="Trade License Number" required>
 <input name="emirate" placeholder="Emirate" required>
@@ -215,62 +292,86 @@ Elite 100<br>Relaunch<br>Selection
 
 <h4 id="paymentTitle">Payment Method</h4>
 
-<div class="payment-grid">
 <label class="payment-card">
-<input type="radio" name="payment" value="Cash" required>
-💵 <span id="cashText">Cash</span>
+<input type="radio" name="payment" value="Cash" required> 💵 Cash
 </label>
 
 <label class="payment-card">
-<input type="radio" name="payment" value="Bank Transfer">
-🏦 <span id="bankText">Bank Transfer</span>
+<input type="radio" name="payment" value="Bank Transfer"> 🏦 Bank Transfer
 </label>
 
 <label class="payment-card">
-<input type="radio" name="payment" value="Credit Card">
-💳 <span id="cardText">Credit Card</span>
+<input type="radio" name="payment" value="Credit Card"> 💳 Credit Card
 </label>
-</div>
 
 <button class="btn" type="submit" id="submitBtn">Submit Application</button>
-
 </form>
 </section>
 
 <footer>
-RoomApp Advertising Services L.L.C – S.P.C<br>
-Abu Dhabi – United Arab Emirates<br>
-www.roomapp.ae | 0509900455 | info@roomapp.ae
+<p>RoomApp Advertising Services L.L.C – S.P.C</p>
+<p>Abu Dhabi – United Arab Emirates</p>
+<p>www.roomapp.ae | 0509900455 | info@roomapp.ae</p>
 </footer>
 
 <script>
 emailjs.init("wBLBy-BZReu3IgCsX");
 
-document.querySelectorAll(".payment-card").forEach(card=>{
-card.addEventListener("click",()=>{
-document.querySelectorAll(".payment-card").forEach(c=>c.classList.remove("active"));
-card.classList.add("active");
+document.getElementById("eliteForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+emailjs.send("service_1572z3v","template_0n2h66c",{
+company:this.company.value,
+license:this.license.value,
+emirate:this.emirate.value,
+contact:this.contact.value,
+email:this.email.value,
+phone:this.phone.value,
+services:this.services.value,
+payment:document.querySelector('input[name="payment"]:checked')?.value
+})
+.then(()=>{
+alert(ar?"تم إرسال الطلب بنجاح":"Application Sent Successfully!");
+this.reset();
+})
+.catch(()=>{
+alert(ar?"حدث خطأ أثناء الإرسال":"Error sending application");
 });
 });
+
+/* Scroll Reveal */
+const sections=document.querySelectorAll('.section-box');
+function reveal(){
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add('show');
+}
+});
+}
+window.addEventListener('scroll',reveal);
+window.addEventListener('load',reveal);
 
 /* Language Toggle */
 let ar=false;
 function toggleLang(){
 ar=!ar;
 document.body.classList.toggle("ar");
-document.body.dir=ar?"rtl":"ltr";
 
 if(ar){
-langBtn.innerText="English";
+document.querySelector(".lang-btn").innerText="English";
 circleText.innerHTML="نخبة 100<br>اختيار<br>إعادة الإطلاق";
-title.innerHTML="نخبة روم آب 100 – اختيار إعادة الإطلاق 2026";
-desc.innerHTML="اختيار حصري لـ 100 شركة عالية القيمة ضمن إعادة الإطلاق الرسمية لمنصة روم آب.";
+title.innerHTML="نخبة روم أب 100 – اختيار إعادة الإطلاق 2026";
+desc.innerHTML="اختيار حصري لـ 100 شركة مقاولات عالية القيمة ضمن الإطلاق الرسمي الجديد لمنصة روم أب.";
+packageTitle.innerHTML="باقة الشريك النخبوي – 1000 درهم (السنة الأولى)";
 applyTitle.innerHTML="التقديم ضمن النخبة المختارة";
 paymentTitle.innerHTML="طريقة الدفع";
 submitBtn.innerHTML="إرسال الطلب";
-cashText.innerHTML="نقداً";
-bankText.innerHTML="تحويل بنكي";
-cardText.innerHTML="بطاقة ائتمان";
+s1.innerHTML="3 خدمات مميزة";
+s2.innerHTML="3 مشاريع بارزة";
+s3.innerHTML="تغطية إمارة واحدة";
+s4.innerHTML="أولوية الظهور ضمن الفئة";
+s5.innerHTML="شارة شريك نخبوي";
+s6.innerHTML="إعداد ملف احترافي كامل";
 
 document.querySelector('input[name="company"]').placeholder="اسم الشركة";
 document.querySelector('input[name="license"]').placeholder="رقم الرخصة التجارية";
