@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RoomApp Elite 100 – Relaunch 2026</title>
-
+<!-- ===== WHATSAPP PREVIEW ===== -->
+<meta property="og:title" content="RoomApp Elite 100 – Relaunch 2026">
+<meta property="og:description" content="Exclusive selection of 100 high-value construction companies for the official RoomApp relaunch.">
+<meta property="og:image" content="https://yourdomain.com/room-logo-preview.jpg">
+<meta property="og:url" content="https://yourdomain.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://yourdomain.com/room-logo-preview.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -30,7 +37,23 @@ body.ar{
 font-family:'Cairo',sans-serif;
 direction:rtl;
 }
+/* ===== PROFESSIONAL ANIMATED BACKGROUND ===== */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle at 20% 30%, rgba(198,167,86,0.15), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(198,167,86,0.12), transparent 40%);
+animation:moveBg 18s linear infinite alternate;
+z-index:-1;
+}
 
+@keyframes moveBg{
+0%{transform:translate(-10%,-10%) scale(1);}
+100%{transform:translate(-5%,-5%) scale(1.1);}
+}
 /* HEADER */
 header{
 display:flex;
@@ -106,7 +129,12 @@ box-shadow:0 0 100px rgba(198,167,86,0.6);
 margin-bottom:40px;
 text-align:center;
 }
-
+animation:pulse 4s ease-in-out infinite;
+  @keyframes pulse{
+0%{box-shadow:0 0 70px rgba(198,167,86,0.4);}
+50%{box-shadow:0 0 130px rgba(198,167,86,0.9);}
+100%{box-shadow:0 0 70px rgba(198,167,86,0.4);}
+}
 .hero h1{
 font-size:44px;
 margin-bottom:20px;
