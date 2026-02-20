@@ -5,22 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RoomApp | Relaunch 100 Selected Companies</title>
-<meta name="description" content="RoomApp Official Relaunch – 100 Selected Companies Invitation. Premium visibility and verified positioning in the UAE market.">
+<meta name="description" content="Official Relaunch – 100 Selected Companies Invitation">
 
-<!-- Open Graph -->
-<meta property="og:title" content="RoomApp | Relaunch 100 Selected Companies">
-<meta property="og:description" content="Official Relaunch Invitation – Limited 100 Companies. Premium Visibility & Verified Positioning.">
+<meta property="og:title" content="RoomApp Relaunch">
+<meta property="og:description" content="100 Selected Companies Invitation">
 <meta property="og:image" content="https://roomapp.ae/og-image.jpg">
-<meta property="og:url" content="https://roomapp.ae">
 <meta property="og:type" content="website">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RoomApp Relaunch">
-<meta name="twitter:description" content="100 Selected Companies Invitation">
-<meta name="twitter:image" content="https://roomapp.ae/og-image.jpg">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -34,9 +26,29 @@
 
 body{
 font-family:'Inter',sans-serif;
-background:var(--black);
+background:#000;
 color:var(--text);
-line-height:1.6;
+overflow-x:hidden;
+}
+
+/* خلفية لوكجري متحركة */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,#000 40%,#1a1405 50%,#000 60%);
+background-size:200% 200%;
+animation:luxMove 12s ease infinite;
+z-index:-1;
+}
+
+@keyframes luxMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 header{
@@ -60,7 +72,6 @@ height:60px;
 .company-info{
 font-size:13px;
 color:#ccc;
-line-height:1.6;
 }
 
 .company-info .license{
@@ -85,7 +96,7 @@ text-align:center;
 }
 
 .hero h1{
-font-size:44px;
+font-size:42px;
 color:var(--gold);
 margin-bottom:20px;
 }
@@ -95,32 +106,26 @@ color:var(--muted);
 margin-bottom:40px;
 }
 
-.package-box{
-background:#111;
+.box{
+background:rgba(17,17,17,0.85);
 padding:40px;
 border-radius:20px;
 border:1px solid rgba(198,167,86,0.3);
 margin-bottom:60px;
+backdrop-filter:blur(10px);
 }
 
-.package-list{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 }
 
-.package-item{
+.item{
 background:#141414;
 padding:20px;
 border-radius:15px;
 border:1px solid rgba(198,167,86,0.2);
-}
-
-.form-section{
-background:#111;
-padding:50px;
-border-radius:20px;
-border:1px solid rgba(198,167,86,0.3);
 }
 
 input,textarea{
@@ -133,7 +138,7 @@ background:#141414;
 color:#fff;
 }
 
-button.submit-btn{
+button{
 width:100%;
 padding:15px;
 border:1px solid var(--gold);
@@ -143,19 +148,7 @@ border-radius:30px;
 cursor:pointer;
 }
 
-.success-message{
-display:none;
-margin-top:10px;
-color:#4CAF50;
-}
-
-.spots{
-margin-top:20px;
-font-size:18px;
-}
-
 footer{
-margin-top:100px;
 padding:60px 8%;
 border-top:1px solid rgba(198,167,86,0.2);
 color:#aaa;
@@ -167,15 +160,12 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
 }
 
-.footer-title{
+.title{
 color:var(--gold);
 margin-bottom:15px;
 }
 
-a{
-color:var(--gold);
-text-decoration:none;
-}
+a{color:var(--gold);text-decoration:none;}
 
 [dir="rtl"]{
 text-align:right;
@@ -187,81 +177,77 @@ text-align:right;
 
 <header>
 <div class="logo">
-<img src="room-logo.jpg" alt="Room Logo">
+<img src="room-logo.jpg">
 <div class="company-info">
 RoomApp Advertising Services L.L.C – S.P.C<br>
 <span class="license">Trade License No: CN-5533268</span><br>
 Abu Dhabi, UAE
 </div>
 </div>
-<button class="lang-btn" onclick="toggleLanguage()" id="langBtn">العربية</button>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">العربية</button>
 </header>
 
 <div class="container hero">
 
-<h1 id="heroTitle">Relaunch 100 Selected Companies</h1>
+<h1 id="title">Relaunch 100 Selected Companies</h1>
+<p id="desc">We are selecting 100 verified companies for premium positioning before public expansion.</p>
 
-<p id="heroDesc">
-As part of RoomApp’s official relaunch, we are selecting 100 verified companies to benefit from premium visibility before public expansion.
-</p>
-
-<div class="package-box">
-<h3 id="packageTitle">Relaunch Elite Package – 1000 AED (Year 1)</h3>
-
-<div class="package-list">
-<div class="package-item" id="p1">Premium Profile Setup</div>
-<div class="package-item" id="p2">Priority Category Visibility</div>
-<div class="package-item" id="p3">Advanced Project Showcase</div>
-<div class="package-item" id="p4">Verified Company Badge</div>
-<div class="package-item" id="p5">Homepage Rotational Exposure</div>
-<div class="package-item" id="p6">Strategic Emirate Positioning</div>
+<div class="box">
+<h3 id="packageTitle" style="color:#C6A756;margin-bottom:25px;">Elite Relaunch Package – 1000 AED</h3>
+<div class="grid">
+<div class="item" id="f1">Premium Profile Setup</div>
+<div class="item" id="f2">Priority Visibility</div>
+<div class="item" id="f3">Verified Badge</div>
+<div class="item" id="f4">Homepage Exposure</div>
+<div class="item" id="f5">Project Showcase</div>
+<div class="item" id="f6">Strategic Emirate Placement</div>
 </div>
 </div>
 
-<div class="form-section">
-<h2 id="formTitle" style="color:#C6A756;margin-bottom:20px;">Apply for Selection</h2>
+<div class="box">
+<h3 class="title" id="paymentTitle">Payment Methods</h3>
+<div class="grid">
+<div class="item" id="pay1">Bank Transfer (UAE)</div>
+<div class="item" id="pay2">International Transfer</div>
+<div class="item" id="pay3">Invoice Will Be Issued</div>
+</div>
+</div>
+
+<div class="box">
+<h3 class="title" id="applyTitle">Apply Now</h3>
 
 <input type="text" id="company" placeholder="Company Name">
-<input type="text" id="licenseInput" placeholder="Trade License Number">
+<input type="text" id="license" placeholder="Trade License Number">
 <input type="text" id="emirate" placeholder="Emirate">
 <input type="text" id="contact" placeholder="Contact Person">
-<input type="email" id="email" placeholder="Email Address">
+<input type="email" id="email" placeholder="Email">
 <input type="tel" id="phone" placeholder="Phone Number">
-<textarea id="desc" placeholder="Brief Description of Services"></textarea>
+<textarea id="notes" placeholder="Company Description"></textarea>
 
-<button class="submit-btn" onclick="submitForm()" id="submitBtn">Submit Application</button>
-
-<div class="success-message" id="successMsg">
-Application Submitted Successfully ✔
+<button id="submitBtn">Submit Application</button>
 </div>
 
-<div class="spots">
-<span id="spotsText">Selected Companies Remaining:</span>
-<span style="color:#C6A756;" id="spotCount">100</span>
-</div>
-
-</div>
 </div>
 
 <footer>
 <div class="footer-grid">
 
 <div>
-<div class="footer-title">Company Information</div>
+<div class="title">Company Information</div>
 RoomApp Advertising Services L.L.C – S.P.C<br>
-Trade License No: CN-5533268<br>
-Abu Dhabi, United Arab Emirates
+CN-5533268<br>
+Abu Dhabi – UAE
 </div>
 
 <div>
-<div class="footer-title">Contact</div>
-Phone: <a href="tel:0509900455">0509900455</a><br>
-Email: <a href="mailto:info@roomapp.ae">info@roomapp.ae</a><br>
-Website: <a href="https://roomapp.ae">www.roomapp.ae</a>
+<div class="title">Contact</div>
+0509900455<br>
+info@roomapp.ae<br>
+www.roomapp.ae
 </div>
 
 <div>
-<div class="footer-title">© 2026 RoomApp</div>
+<div class="title">© 2026 RoomApp</div>
 All Rights Reserved
 </div>
 
@@ -269,28 +255,35 @@ All Rights Reserved
 </footer>
 
 <script>
-let currentLang="en";
-let spots=100;
+let lang="en";
 
-function submitForm(){
-document.getElementById("successMsg").style.display="block";
-if(spots>0){
-spots--;
-document.getElementById("spotCount").innerText=spots;
-}
-}
-
-function toggleLanguage(){
-if(currentLang==="en"){
+function toggleLang(){
+if(lang==="en"){
 document.documentElement.setAttribute("dir","rtl");
 document.getElementById("langBtn").innerText="English";
-document.getElementById("heroTitle").innerText="100 شركة مختارة بمناسبة إعادة الإطلاق";
-document.getElementById("heroDesc").innerText="نختار 100 شركة معتمدة للاستفادة من الظهور المميز قبل التوسع العام.";
+document.getElementById("title").innerText="100 شركة مختارة بمناسبة إعادة الإطلاق";
+document.getElementById("desc").innerText="نختار 100 شركة معتمدة للظهور المميز قبل التوسع العام.";
 document.getElementById("packageTitle").innerText="باقة النخبة لإعادة الإطلاق – 1000 درهم";
-document.getElementById("formTitle").innerText="التقديم للاختيار";
+document.getElementById("paymentTitle").innerText="طرق الدفع";
+document.getElementById("applyTitle").innerText="قدم الآن";
+document.getElementById("f1").innerText="إعداد ملف احترافي";
+document.getElementById("f2").innerText="أولوية الظهور";
+document.getElementById("f3").innerText="شارة شركة معتمدة";
+document.getElementById("f4").innerText="ظهور في الصفحة الرئيسية";
+document.getElementById("f5").innerText="عرض المشاريع";
+document.getElementById("f6").innerText="تمركز داخل الإمارة";
+document.getElementById("pay1").innerText="تحويل بنكي داخل الإمارات";
+document.getElementById("pay2").innerText="تحويل دولي";
+document.getElementById("pay3").innerText="سيتم إصدار فاتورة رسمية";
+document.getElementById("company").placeholder="اسم الشركة";
+document.getElementById("license").placeholder="رقم الرخصة التجارية";
+document.getElementById("emirate").placeholder="الإمارة";
+document.getElementById("contact").placeholder="اسم المسؤول";
+document.getElementById("email").placeholder="البريد الإلكتروني";
+document.getElementById("phone").placeholder="رقم الهاتف";
+document.getElementById("notes").placeholder="وصف مختصر عن الشركة";
 document.getElementById("submitBtn").innerText="إرسال الطلب";
-document.getElementById("spotsText").innerText="المقاعد المتبقية:";
-currentLang="ar";
+lang="ar";
 }else{
 location.reload();
 }
