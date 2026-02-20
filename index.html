@@ -3,239 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founding 100 – Room</title>
+<title>RoomApp | Founding 100 Partners</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
+:root{
+--black:#0b0b0c;
+--dark:#111;
+--gold:#C6A756;
+--gold-soft:rgba(198,167,86,0.15);
+--text:#f5f5f5;
+--muted:#9a9a9a;
 }
+
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  background:#0B0B0C;
-  color:#F5F5F5;
-  overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:var(--black);
+color:var(--text);
+overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-section{
-  padding:100px 8%;
-  position:relative;
+/* 🔥 Luxury Animated Background */
+body::before{
+content:"";
+position:fixed;
+top:-30%;
+left:-30%;
+width:160%;
+height:160%;
+background:
+radial-gradient(circle at 20% 30%, rgba(198,167,86,0.12), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(198,167,86,0.10), transparent 45%);
+animation:luxMove 14s ease-in-out infinite alternate;
+z-index:-1;
 }
 
-.gold{
-  color:#C6A756;
+@keyframes luxMove{
+0%{transform:translate(0,0);}
+100%{transform:translate(60px,40px);}
 }
 
 .container{
-  max-width:1200px;
-  margin:auto;
+width:90%;
+max-width:1200px;
+margin:auto;
 }
 
+section{
+padding:120px 0;
+}
+
+/* Header */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(11,11,12,0.85);
+backdrop-filter:blur(12px);
+padding:15px 8%;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+border-bottom:1px solid rgba(198,167,86,0.1);
+}
+
+.logo img{
+height:65px;
+width:auto;
+transition:.4s;
+filter: drop-shadow(0 0 20px rgba(198,167,86,0.35));
+}
+
+.logo img:hover{
+transform:scale(1.06);
+filter: drop-shadow(0 0 35px rgba(198,167,86,0.55));
+}
+
+.gold{color:var(--gold);}
+
+/* Hero */
 .hero{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
+padding-top:200px;
+text-align:center;
+animation:fadeUp 1.2s ease forwards;
 }
 
-.hero-text{
-  max-width:600px;
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 .hero h1{
-  font-size:48px;
-  font-weight:700;
-  line-height:1.2;
-  margin-bottom:20px;
+font-size:56px;
+font-weight:700;
+line-height:1.2;
+margin-bottom:25px;
 }
 
 .hero p{
-  color:#9A9A9A;
-  margin-bottom:30px;
-  font-size:18px;
+color:var(--muted);
+font-size:20px;
+max-width:750px;
+margin:auto;
+margin-bottom:40px;
 }
 
-.gold-btn{
-  border:1px solid #C6A756;
-  background:transparent;
-  color:#C6A756;
-  padding:14px 30px;
-  cursor:pointer;
-  transition:all .4s cubic-bezier(0.16,1,0.3,1);
+/* Package Box */
+.package-box{
+margin-top:60px;
+background:linear-gradient(180deg,#111 0%,#0b0b0c 100%);
+border:1px solid rgba(198,167,86,0.2);
+border-radius:20px;
+padding:50px;
+box-shadow:0 0 80px rgba(198,167,86,0.06);
+transition:.4s;
 }
 
-.gold-btn:hover{
-  background:#C6A756;
-  color:#000;
-  box-shadow:0 0 30px rgba(198,167,86,0.4);
-  transform:translateY(-3px);
+.package-box:hover{
+box-shadow:0 0 120px rgba(198,167,86,0.12);
 }
 
-.phone-wrapper{
-  position:relative;
+.package-box h3{
+color:var(--gold);
+margin-bottom:30px;
+font-size:24px;
 }
 
-.phone{
-  width:320px;
-  animation:floatPhone 8s ease-in-out infinite;
+.package-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-@keyframes floatPhone{
-  0%,100%{ transform:translateY(0px); }
-  50%{ transform:translateY(-15px); }
+.package-item{
+padding:25px;
+background:#141414;
+border-radius:14px;
+border:1px solid rgba(198,167,86,0.15);
+transition:.4s;
 }
 
-.phone-glow{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:350px;
-  height:350px;
-  background:radial-gradient(circle, rgba(198,167,86,0.25) 0%, transparent 70%);
-  animation:pulseGlow 6s ease-in-out infinite;
-  z-index:-1;
+.package-item:hover{
+transform:translateY(-6px);
+box-shadow:0 0 30px var(--gold-soft);
 }
 
-@keyframes pulseGlow{
-  0%,100%{ opacity:0.6; }
-  50%{ opacity:1; }
-}
-
-.features{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:30px;
-  margin-top:60px;
-}
-
-.feature{
-  flex:1;
-  min-width:250px;
-  border:1px solid rgba(198,167,86,0.2);
-  padding:30px;
-  border-radius:12px;
-  transition:all .4s ease;
-}
-
-.feature:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 30px rgba(198,167,86,0.2);
-}
-
+/* Form */
 .form-section{
-  margin-top:100px;
-  padding:60px;
-  border:1px solid rgba(198,167,86,0.2);
-  border-radius:16px;
-  background:#111111;
+margin-top:100px;
+padding:60px;
+background:#111;
+border-radius:20px;
+border:1px solid rgba(198,167,86,0.2);
+animation:fadeUp 1.5s ease forwards;
 }
 
-iframe{
-  width:100%;
-  height:900px;
-  border:none;
+.form-section h2{
+margin-bottom:30px;
+}
+
+input,textarea{
+width:100%;
+padding:16px;
+margin-bottom:18px;
+border-radius:10px;
+border:1px solid rgba(198,167,86,0.2);
+background:#141414;
+color:#fff;
+font-size:15px;
+transition:.3s;
+}
+
+input:focus,textarea:focus{
+outline:none;
+border:1px solid var(--gold);
+box-shadow:0 0 20px var(--gold-soft);
+}
+
+textarea{
+min-height:120px;
+resize:none;
+}
+
+.btn{
+display:inline-block;
+width:100%;
+padding:16px;
+border:1px solid var(--gold);
+color:var(--gold);
+background:transparent;
+border-radius:40px;
+font-weight:600;
+transition:.4s;
+cursor:pointer;
+}
+
+.btn:hover{
+background:var(--gold);
+color:#000;
+box-shadow:0 0 35px rgba(198,167,86,0.4);
+transform:translateY(-3px);
+}
+
+.success-message{
+display:none;
+margin-top:20px;
+color:#4CAF50;
+font-weight:600;
 }
 
 .spots{
-  text-align:center;
-  margin-top:40px;
-  font-size:20px;
+margin-top:30px;
+text-align:center;
+font-size:22px;
+font-weight:600;
 }
 
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 1s cubic-bezier(0.16,1,0.3,1);
+footer{
+text-align:center;
+padding:60px;
+color:#777;
+border-top:1px solid rgba(198,167,86,0.1);
+margin-top:120px;
 }
 
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-@media(max-width:900px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
-  .phone{
-    margin-top:50px;
-  }
+/* Responsive */
+@media(max-width:768px){
+.hero h1{font-size:38px;}
+.hero p{font-size:16px;}
+.logo img{height:50px;}
 }
 </style>
 </head>
 
 <body>
 
+<header>
+<div class="logo">
+<img src="room-logo.jpg" alt="Room Logo" onerror="this.style.display='none'">
+</div>
+</header>
+
 <section class="hero container">
-  <div class="hero-text reveal">
-    <h1>
-      Founding 100 <br>
-      <span class="gold">Construction Partners</span>
-    </h1>
-    <p>
-      Join the first verified construction companies professionally showcasing their services and projects on Room.
-    </p>
-    <p class="gold">Founding Partner Rate: 1000 AED – Year 1 Only</p>
-    <button class="gold-btn" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
-      Apply Now
-    </button>
-  </div>
+<h1><span class="gold">Founding 100</span> Strategic Partners</h1>
+<p>
+Position your company among the first verified construction firms professionally showcasing projects and services on RoomApp across the UAE.
+</p>
 
-  <div class="phone-wrapper reveal">
-    <div class="phone-glow"></div>
-    <img src="YOUR_PHONE_SCREENSHOT.png" class="phone">
-  </div>
+<div class="package-box">
+<h3>Founding Partner Package – 1000 AED (Year 1)</h3>
+
+<div class="package-list">
+<div class="package-item">3 Highlighted Services</div>
+<div class="package-item">3 Featured Projects</div>
+<div class="package-item">1 Emirate Coverage</div>
+<div class="package-item">Rotational Category Visibility</div>
+<div class="package-item">Official Founding Partner Badge</div>
+<div class="package-item">Professional Profile Setup</div>
+</div>
+</div>
+
 </section>
 
-<section class="container reveal">
-  <div class="features">
-    <div class="feature">
-      <h3 class="gold">3 Highlighted Services</h3>
-      <p>Structured professional presentation.</p>
-    </div>
-    <div class="feature">
-      <h3 class="gold">3 Featured Projects</h3>
-      <p>Portfolio visibility for decision makers.</p>
-    </div>
-    <div class="feature">
-      <h3 class="gold">Rotational Category Visibility</h3>
-      <p>Fair exposure across the platform.</p>
-    </div>
-  </div>
+<section id="apply" class="container">
+<div class="form-section">
+<h2 class="gold">Apply as Founding Partner</h2>
+
+<form id="partnerForm">
+<input type="text" placeholder="Company Name" required>
+<input type="text" placeholder="Trade License Number" required>
+<input type="text" placeholder="Emirate" required>
+<input type="text" placeholder="Contact Person" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+<textarea placeholder="Brief Description of Services"></textarea>
+
+<button type="submit" class="btn">Submit</button>
+
+<div class="success-message" id="successMsg">
+Application Submitted Successfully ✔ <br>
+Our team will contact you shortly.
+</div>
+</form>
+
+<div class="spots">
+Founding Spots Remaining: <span class="gold" id="spotCount">100</span>
+</div>
+
+</div>
 </section>
 
-<section id="apply" class="container reveal">
-  <div class="form-section">
-    <h2 class="gold" style="margin-bottom:30px;">Apply as Founding Partner</h2>
-
-    <!-- ضع هنا رابط Google Form -->
-    <iframe src="PASTE_YOUR_GOOGLE_FORM_LINK_HERE"></iframe>
-
-    <div class="spots">
-      Founding Spots Remaining: <span class="gold">100</span>
-    </div>
-  </div>
-</section>
+<footer>
+© 2026 RoomApp Advertising Services L.L.C – S.P.C | Abu Dhabi, UAE
+</footer>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
+let spots = 100;
 
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-    }
-  });
-},{threshold:0.15});
+document.getElementById("partnerForm").addEventListener("submit", function(e){
+e.preventDefault();
 
-reveals.forEach(el=>observer.observe(el));
+document.getElementById("successMsg").style.display="block";
+
+if(spots>0){
+spots--;
+document.getElementById("spotCount").innerText = spots;
+}
+
+this.reset();
+});
 </script>
 
 </body>
