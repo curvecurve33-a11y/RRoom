@@ -23,7 +23,112 @@ https://partners.roomapp.ae/room-logo-preview.jpg
 --white:#ffffff;
 --gray:#bfbfbf;
 }
+/* =========================
+   LUXURY ANIMATED BACKGROUND
+========================= */
+<script>
+/* Scroll Reveal Animation */
+const sections = document.querySelectorAll('.section-box');
 
+function reveal(){
+sections.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add('show');
+}
+});
+}
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+</script>
+body{
+position:relative;
+overflow-x:hidden;
+}
+
+/* Moving gradient waves */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle at 30% 30%, rgba(198,167,86,0.15), transparent 40%),
+radial-gradient(circle at 70% 70%, rgba(198,167,86,0.12), transparent 40%),
+radial-gradient(circle at 50% 90%, rgba(198,167,86,0.08), transparent 40%);
+animation:luxMove 25s ease-in-out infinite alternate;
+z-index:-2;
+}
+
+@keyframes luxMove{
+0%{transform:translate(-5%,-5%) scale(1);}
+50%{transform:translate(-8%,-3%) scale(1.05);}
+100%{transform:translate(-3%,-8%) scale(1.1);}
+}
+
+/* Floating gold particles */
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(rgba(198,167,86,0.4) 1px, transparent 1px);
+background-size:60px 60px;
+animation:particlesMove 60s linear infinite;
+opacity:0.15;
+z-index:-1;
+}
+
+@keyframes particlesMove{
+from{background-position:0 0;}
+to{background-position:300px 600px;}
+}
+
+/* =========================
+   HERO FLOAT EFFECT
+========================= */
+
+.circle{
+animation:pulse 4s ease-in-out infinite,
+         floatCircle 6s ease-in-out infinite;
+}
+
+@keyframes floatCircle{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0px);}
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.section-box{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.section-box.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Package hover stronger */
+.package-item{
+transition:all .4s ease;
+}
+
+.package-item:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 40px rgba(198,167,86,0.5);
+}
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
