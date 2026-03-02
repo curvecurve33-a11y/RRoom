@@ -218,7 +218,27 @@ transition:.3s;
 background:rgba(198,167,86,0.15);
 }
 
-.payment-card input{display:none;}
+.payment-card input{
+position:absolute;
+opacity:0;
+}
+
+.payment-card{
+display:inline-block;
+padding:18px 35px;
+margin:10px 15px 20px 0;
+border-radius:30px;
+border:1px solid rgba(198,167,86,0.4);
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+.payment-card:has(input:checked){
+background:rgba(198,167,86,0.25);
+border:1px solid #C6A756;
+box-shadow:0 0 15px rgba(198,167,86,0.6);
+}
 
 .btn{
 width:100%;
