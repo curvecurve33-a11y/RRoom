@@ -114,11 +114,11 @@ font-weight:700;
 color:#000;
 box-shadow:0 0 120px rgba(198,167,86,0.7);
 }
-/* .circle::after{ } */
+.circle::after{
 content:"";
 position:absolute;
-width:360px;
-height:360px;
+width:340px;
+height:340px;
 border-radius:50%;
 border:2px solid rgba(212,175,55,0.6);
 box-shadow:
@@ -292,49 +292,6 @@ font-size:14px;
 .section-box{padding:35px;}
 
 }
-.gold-ring-img{
-position:absolute;
-width:360px;
-height:360px;
-object-fit:contain;
-pointer-events:none;
-animation:goldSpin 90s linear infinite;
-z-index:1;
-}
-
-@keyframes goldSpin{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-.circle-wrap{
-position:relative;
-width:280px;
-height:280px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.gold-ring{
-position:absolute;
-width:360px;
-height:360px;
-object-fit:contain;
-pointer-events:none;
-animation:ringSpin 80s linear infinite;
-z-index:1;
-}
-
-.circle{
-position:relative;
-z-index:2;
-}
-
-@keyframes ringSpin{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
 </style>
 </head>
 
@@ -354,19 +311,10 @@ to{transform:rotate(360deg);}
 </header>
 
 <section class="hero">
-<div class="circle-wrap">
-
-<img src="IMG_6388.jpeg" class="gold-ring">
-
 <div class="circle" id="circleText">
 Elite 100<br>Relaunch<br>Selection
 </div>
-
-</div>
-
-</div>
 <h1 id="title">RoomApp Elite 100 – Relaunch Selection 2026</h1>
-margin-top:40px;
 <p id="desc">
 An exclusive selection of 100 high-value construction companies chosen for the official RoomApp platform relaunch.
 </p>
