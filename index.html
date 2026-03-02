@@ -292,6 +292,20 @@ font-size:14px;
 .section-box{padding:35px;}
 
 }
+.gold-ring-img{
+position:absolute;
+width:360px;
+height:360px;
+object-fit:contain;
+pointer-events:none;
+animation:goldSpin 90s linear infinite;
+z-index:1;
+}
+
+@keyframes goldSpin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
 </style>
 </head>
 
@@ -311,8 +325,14 @@ font-size:14px;
 </header>
 
 <section class="hero">
-<div class="circle" id="circleText">
+<div class="circle">
+
+<img src="IMG_6388.jpeg" class="gold-ring-img">
+
+<div id="circleText">
 Elite 100<br>Relaunch<br>Selection
+</div>
+
 </div>
 <h1 id="title">RoomApp Elite 100 – Relaunch Selection 2026</h1>
 <p id="desc">
